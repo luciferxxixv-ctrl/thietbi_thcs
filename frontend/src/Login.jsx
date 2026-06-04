@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_BASE } from "./components/shared/constants";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ function Login() {
     if (!username.trim() || !password) return;
     setSubmitting(true);
     try {
-      const res = await axios.post("/api/auth/login", { username, password });
+      const res = await axios.post(`${API_BASE}/api/auth/login`, { username, password });
       localStorage.setItem("user", JSON.stringify(res.data));
       toast(`Xin chào, ${res.data.tenGV}!`);
       if (res.data.role === "admin") navigate("/admin");
