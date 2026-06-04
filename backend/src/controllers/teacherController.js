@@ -1,4 +1,5 @@
 const { pool } = require("../config/db");
+const bcrypt = require("bcrypt");
 
 // Lấy danh sách toàn bộ giáo viên
 const getTeachers = async (req, res) => {
@@ -17,15 +18,15 @@ const addTeacher = async (req, res) => {
   try {
     const { maGV, tenGV, taiKhoan, matKhau, email } = req.body;
 
-    // Mật khẩu mặc định nếu không nhập là 123456
-    const pass = matKhau || "123456";
+    const plainPass = matKhau || "123456";
+    const hashedPass = await bcrypt.hash(plainPass, 10);
     const em = email && String(email).trim() ? String(email).trim() : null;
 
     const query = `
             INSERT INTO GIAO_VIEN (MaGV, TenGV, TaiKhoan, MatKhau, Email) 
             VALUES ($1, $2, $3, $4, $5) RETURNING *
         `;
-    const result = await pool.query(query, [maGV, tenGV, taiKhoan, pass, em]);
+    const result = await pool.query(query, [maGV, tenGV, taiKhoan, hashedPass, em]);
 
     res
       .status(201)
@@ -93,8 +94,8 @@ const updateTeacher = async (req, res) => {
 const resetPassword = async (req, res) => {
   try {
     const { id } = req.params;
-    // Đặt lại mật khẩu mặc định là 123456
-    await pool.query(`UPDATE GIAO_VIEN SET MatKhau = '123456' WHERE MaGV = $1`, [id]);
+    const hashedPass = await bcrypt.hash("123456", 10);
+    await pool.query(`UPDATE GIAO_VIEN SET MatKhau = $1 WHERE MaGV = $2`, [hashedPass, id]);
     res.status(200).json({ msg: "Đã khôi phục mật khẩu về mặc định (123456)!" });
   } catch (err) {
     console.error("Lỗi reset password:", err);

@@ -27,7 +27,21 @@ const server = http.createServer(app); // [MỚI]
 // Khởi tạo Socket.io
 initSocket(server);
 
-app.use(cors());
+const allowedOrigins = process.env.FRONTEND_URL
+  ? process.env.FRONTEND_URL.split(",").map((u) => u.trim())
+  : [];
+
+app.use(
+  cors({
+    origin: allowedOrigins.length
+      ? (origin, cb) => {
+          if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+          cb(new Error("CORS not allowed"));
+        }
+      : true,
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 connectDB();

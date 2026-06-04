@@ -48,4 +48,21 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { login };
+const migratePasswords = async (req, res) => {
+  try {
+    const { rows } = await pool.query("SELECT magv, matkhau FROM giao_vien");
+    let updated = 0;
+    for (const row of rows) {
+      if (!row.matkhau || row.matkhau.startsWith("$2")) continue;
+      const hashed = await bcrypt.hash(row.matkhau, 10);
+      await pool.query("UPDATE giao_vien SET matkhau = $1 WHERE magv = $2", [hashed, row.magv]);
+      updated++;
+    }
+    res.json({ msg: `Đã hash ${updated}/${rows.length} mật khẩu plaintext.` });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Lỗi migrate passwords" });
+  }
+};
+
+module.exports = { login, migratePasswords };

@@ -5,11 +5,18 @@ let io;
 const userSockets = new Map();
 
 const initSocket = (server) => {
+  const allowedOrigins = process.env.FRONTEND_URL
+    ? process.env.FRONTEND_URL.split(",").map((u) => u.trim())
+    : ["*"];
+
   io = socketIo(server, {
     cors: {
-      origin: "*", // Cấu hình tuỳ theo frontend URL, dùng * cho dev
-      methods: ["GET", "POST"]
-    }
+      origin: allowedOrigins.length === 1 && allowedOrigins[0] === "*"
+        ? "*"
+        : allowedOrigins,
+      methods: ["GET", "POST"],
+      credentials: true,
+    },
   });
 
   io.on('connection', (socket) => {
