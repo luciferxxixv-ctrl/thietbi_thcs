@@ -1,0 +1,818 @@
+/* ==========================================================
+   THCS Nam Khê — Design Tokens (Education theme)
+   Tone: teal + warm orange, soft slate surfaces
+   ========================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  /* Brand */
+  --brand-50: #f0fdfa;
+  --brand-100: #ccfbf1;
+  --brand-200: #99f6e4;
+  --brand-300: #5eead4;
+  --brand-400: #2dd4bf;
+  --brand-500: #14b8a6;
+  --brand-600: #0d9488; /* primary */
+  --brand-700: #0f766e;
+  --brand-800: #115e59;
+  --brand-900: #134e4a;
+
+  /* Accent (warm orange) */
+  --accent-100: #ffedd5;
+  --accent-200: #fed7aa;
+  --accent-400: #fb923c;
+  --accent-500: #f97316;
+  --accent-600: #ea580c;
+
+  /* Surface / text */
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --surface-3: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+
+  /* Layout */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 14px 38px rgba(15, 23, 42, 0.12);
+
+  --bottom-nav-height: 64px;
+}
+
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background-color: var(--surface-2);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================
+   Animations
+   ========================================================== */
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-in-out;
+}
+.animate-pop-in {
+  animation: popIn 0.25s cubic-bezier(0.2, 0.8, 0.3, 1.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================================
+   Cards / buttons / sidebar
+   ========================================================== */
+.card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-2px);
+}
+
+.btn {
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Brand button (teal) — dùng thay btn-primary khi muốn theme Education */
+.btn-brand {
+  background: linear-gradient(
+    135deg,
+    var(--brand-600) 0%,
+    var(--brand-700) 100%
+  );
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+}
+.btn-brand:hover,
+.btn-brand:focus {
+  background: linear-gradient(
+    135deg,
+    var(--brand-700) 0%,
+    var(--brand-800) 100%
+  );
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(13, 148, 136, 0.35);
+}
+.btn-brand-outline {
+  background: var(--surface);
+  color: var(--brand-700);
+  border: 1.5px solid var(--brand-600);
+}
+.btn-brand-outline:hover {
+  background: var(--brand-50);
+  color: var(--brand-800);
+  border-color: var(--brand-700);
+}
+
+.list-group-item.active {
+  background: linear-gradient(
+    135deg,
+    var(--brand-600) 0%,
+    var(--brand-800) 100%
+  );
+  border-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+}
+
+/* ==========================================================
+   App-level utilities
+   ========================================================== */
+.app-shell {
+  background-color: var(--surface-2);
+  min-height: 100vh;
+  padding-bottom: 0;
+}
+@media (max-width: 767.98px) {
+  .app-shell {
+    padding-bottom: var(--bottom-nav-height);
+  }
+}
+
+.app-navbar {
+  background: rgba(15, 118, 110, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.app-page-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+.app-page-title .icon-pill {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-100);
+  color: var(--brand-700);
+  font-size: 1.15rem;
+}
+
+.touch-btn {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* ==========================================================
+   Stat cards (homepage)
+   ========================================================== */
+.stat-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+}
+.stat-card .stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.stat-card .stat-num {
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text);
+}
+.stat-card .stat-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+.stat-card.stat-pending .stat-icon {
+  background: var(--accent-100);
+  color: var(--accent-600);
+}
+.stat-card.stat-active .stat-icon {
+  background: var(--brand-100);
+  color: var(--brand-700);
+}
+
+/* ==========================================================
+   Bottom navigation (mobile)
+   ========================================================== */
+.app-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--bottom-nav-height);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.06);
+  display: none;
+  z-index: 1030;
+}
+@media (max-width: 767.98px) {
+  .app-bottom-nav {
+    display: flex;
+  }
+}
+
+.app-bottom-nav .nav-btn {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 6px 4px 4px;
+  position: relative;
+  transition: color 0.2s ease;
+}
+.app-bottom-nav .nav-btn i {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+.app-bottom-nav .nav-btn.active {
+  color: var(--brand-700);
+  font-weight: 700;
+}
+.app-bottom-nav .nav-btn.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 22%;
+  right: 22%;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: var(--brand-600);
+}
+.app-bottom-nav .nav-btn:active {
+  transform: none;
+  background: var(--brand-50);
+}
+
+/* ==========================================================
+   Login page
+   ========================================================== */
+.login-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background:
+    radial-gradient(
+      1200px 600px at 100% 0%,
+      rgba(249, 115, 22, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 0% 100%,
+      rgba(13, 148, 136, 0.25),
+      transparent 60%
+    ),
+    linear-gradient(135deg, #f0fdfa 0%, #fff7ed 100%);
+}
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: 28px 26px 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(15, 118, 110, 0.08);
+}
+.login-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+  color: #fff;
+  font-size: 1.9rem;
+  box-shadow: 0 8px 22px rgba(13, 148, 136, 0.35);
+}
+
+/* ==========================================================
+   Weekly agenda (mobile)
+   ========================================================== */
+.agenda-day {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.agenda-day-head {
+  padding: 10px 14px;
+  background: linear-gradient(135deg, var(--brand-50) 0%, var(--surface) 100%);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.agenda-day-head .dh-label {
+  font-weight: 700;
+  color: var(--brand-800);
+}
+.agenda-day-head .dh-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.agenda-tiet {
+  padding: 12px 14px;
+  border-bottom: 1px dashed var(--border);
+  display: flex;
+  gap: 10px;
+}
+.agenda-tiet:last-child {
+  border-bottom: none;
+}
+.agenda-tiet .tiet-pill {
+  flex: 0 0 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--brand-50);
+  color: var(--brand-700);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+.agenda-tiet.is-submitted .tiet-pill {
+  background: #dcfce7;
+  color: #166534;
+}
+.agenda-tiet.is-draft .tiet-pill {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.agenda-tiet.is-cancelled .tiet-pill {
+  background: var(--surface-3);
+  color: var(--text-muted);
+}
+
+.agenda-tiet .at-body {
+  flex: 1;
+  min-width: 0;
+}
+.agenda-tiet .at-title {
+  font-weight: 600;
+  color: var(--text);
+}
+.agenda-tiet .at-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.agenda-tiet .at-meta .badge-soft {
+  background: var(--surface-3);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-right: 6px;
+  font-weight: 600;
+  font-size: 0.72rem;
+}
+.agenda-tiet .at-action {
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================
+   History (mobile cards)
+   ========================================================== */
+.history-card-list {
+  display: grid;
+  gap: 12px;
+}
+.history-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+.history-card .hc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.history-card .hc-title {
+  font-weight: 700;
+  color: var(--text);
+}
+.history-card .hc-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.history-card .hc-meta {
+  font-size: 0.85rem;
+}
+.history-card .hc-meta strong {
+  color: var(--brand-700);
+}
+.history-card .hc-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+/* ==========================================================
+   Modal (Suggestion / Plan editor)
+   ========================================================== */
+.modal-brand-header {
+  background: linear-gradient(
+    135deg,
+    var(--brand-600) 0%,
+    var(--brand-800) 100%
+  ) !important;
+  color: #fff;
+}
+.modal-brand-header .modal-title {
+  color: #fff;
+}
+.modal-brand-header .ctx-pill {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+.section-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand-500);
+  border-radius: var(--radius-md);
+  padding: 14px 14px 12px;
+  margin-bottom: 14px;
+}
+.section-card .section-title {
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+.section-card .section-title i {
+  color: var(--brand-700);
+}
+
+.empty-state {
+  background: var(--surface);
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px 14px;
+  text-align: center;
+  color: var(--text-muted);
+}
+.empty-state .es-icon {
+  font-size: 2.4rem;
+  color: var(--brand-300);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.qty-stepper button {
+  border: none;
+  background: var(--surface-3);
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--brand-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+.qty-stepper button:hover {
+  background: var(--brand-100);
+}
+.qty-stepper button:active {
+  background: var(--brand-200);
+}
+.qty-stepper input {
+  width: 52px;
+  border: none;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  background: var(--surface);
+  color: var(--text);
+  padding: 6px 4px;
+}
+.qty-stepper input:focus {
+  outline: none;
+  background: var(--brand-50);
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 8px;
+}
+.item-row .ir-name {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.item-row .ir-name .nm {
+  font-weight: 600;
+  color: var(--text);
+}
+.item-row .ir-name .sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.item-row .ir-remove {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.item-row .ir-remove:hover {
+  background: #fee2e2;
+}
+
+/* ==========================================================
+   Spinner overlay & toast tweaks
+   ========================================================== */
+.spinner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+  border-radius: var(--radius-md);
+}
+
+.Toastify__toast {
+  border-radius: var(--radius-md);
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+
+/* ==========================================================
+   Misc responsive helpers
+   ========================================================== */
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+@media (max-width: 575.98px) {
+  .title-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .title-row > * {
+    width: 100%;
+  }
+  .title-row .week-nav {
+    justify-content: space-between;
+  }
+}
+
+.brand-text {
+  color: var(--brand-700) !important;
+}
+.brand-bg-soft {
+  background-color: var(--brand-50) !important;
+}
+.accent-text {
+  color: var(--accent-600) !important;
+}
+.accent-bg-soft {
+  background-color: var(--accent-100) !important;
+}
+
+/* ==========================================================
+   Admin Dashboard Layout
+   ========================================================== */
+.admin-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--surface-2);
+}
+
+.admin-sidebar {
+  width: 280px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  z-index: 1040;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.admin-sidebar .sidebar-brand {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  gap: 10px;
+}
+
+.admin-sidebar .sidebar-menu {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-sidebar .menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  gap: 12px;
+}
+
+.admin-sidebar .menu-item i {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+
+.admin-sidebar .menu-item:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.admin-sidebar .menu-item.active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 100%);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+}
+
+.admin-sidebar .menu-item.danger-item:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.admin-header {
+  height: 70px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 10;
+}
+
+.admin-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .admin-sidebar.desktop-sidebar {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .admin-header .mobile-toggle {
+    display: none !important;
+  }
+}
+
+.admin-user-card {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--brand-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+}
+

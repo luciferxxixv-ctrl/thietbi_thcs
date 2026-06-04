@@ -1,0 +1,2186 @@
+BỘ CÔNG THƯƠNG
+ TRƯỜNG ĐẠI HỌC CÔN NGHIỆP QUẢNG NINH 
+ĐỒ ÁN TỐT NGHIỆP
+Đề tài:
+XÂY DỰNG ỨNG DỤNG QUẢN LÝ CHI TIÊU BẰNG FLUTTE
+Giảng viên hướng dẫn
+:
+Nguyễn Hồng Quân
+Sinh viên thực hiện
+:
+Mittaphab DUANGCHAMPA
+Mã sinh viên
+:
+LA14DH0002
+Khoa 
+:
+Công nghệ thông tin
+Lớp
+:
+Mạng Máy tính K14
+Quảng Ninh, 
+tháng
+ 
+06
+ năm 2025
+B
+Ộ CÔNG THƯƠNG
+TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP QUẢNG
+ NINH
+ 
+ĐỒ ÁN TỐT NGHIỆP
+Đề tài:
+XÂY DỰNG ỨNG DỤNG QUẢN LÝ CHI TIÊU BẰNG FLUTTE
+Giảng viên hướng dẫn
+:
+Nguyễn Hồng Quân
+Sinh viên thực hiện
+:
+Mittaphab DUANGCHAMPA
+Mã sinh viên
+:
+LA14DH0002
+Khoa 
+:
+Công nghệ thông tin
+Lớp
+:
+Mạng Máy tính K14
+Quảng Ninh, 
+tháng
+ 
+06
+ năm 2025
+LỜI CẢM ƠN
+Trước hết, em xin gửi lời cảm ơn chân thành và sâu sắc đến 
+TS
+ Nguyễn Hồng Quân người đã tận tình hướng dẫn, góp ý và hỗ trợ em trong suốt quá trình thực hiện đồ án. Những kiến thức và kinh nghiệm quý báu mà 
+t
+hầy chia sẻ đã giúp em định hướng và hoàn thiện sản phẩm một cách hiệu quả hơn.
+Em cũng xin cảm ơn khoa Công nghệ thông tin 
+và trưởng
+ khoa
+ TS
+ 
+Nguyễn Hồng Quân đã tạo điều kiện thuận lợi, cung cấp môi trường học tập và nghiên cứu tốt để em có cơ hội tiếp cận với công nghệ mới và phát triển kỹ năng thực tế thông qua đồ án này.
+Cuối cùng, em xin gửi lời cảm ơn đến gia đình, bạn bè và các anh/chị sinh viên khóa trước đã động viên và hỗ trợ em trong suốt quá trình học tập cũng như khi thực hiện báo cáo.
+Mặc dù đã cố gắng hoàn thiện nội dung một cách đầy đủ và khoa học, nhưng do hạn chế về kiến thức và kinh nghiệm thực tiễn, báo cáo không tránh khỏi những thiếu sót. Em rất mong nhận được sự góp ý từ Thầy/Cô để em có thể rút kinh nghiệm và hoàn thiện bản thân hơn trong tương lai.
+   
+Quảng Ninh, ngày
+ 20
+ tháng 
+06
+ năm 2024
+Sinh viện thực hiện
+   Mittaphab DOUANGCHAMPA
+LỜI MỞ ĐẦU
+Trong bối cảnh nền kinh tế ngày càng phát triển, việc quản lý tài chính cá nhân trở thành một kỹ năng thiết yếu giúp mỗi người chủ động trong việc kiểm soát chi tiêu, tiết kiệm và lập kế hoạch cho tương lai. Tuy nhiên, không phải ai cũng có thói quen theo dõi chi tiêu hàng ngày một cách khoa học và hiệu quả.
+Song song với sự phát triển mạnh mẽ của công nghệ, đặc biệt là công nghệ di động, các ứng dụng hỗ trợ quản lý chi tiêu cá nhân ngày càng trở nên phổ biến và hữu ích. Trên nền tảng đó, em lựa chọn đề tài “Xây dựng ứng dụng quản lý chi tiêu trên Flutter” với mục tiêu tạo ra một công cụ đơn giản, trực quan nhưng đầy đủ chức năng để người dùng dễ dàng ghi chép, theo dõi và phân tích tài chính cá nhân.
+Báo cáo này trình bày toàn bộ quá trình từ nghiên cứu cơ sở lý thuyết, thiết kế mô hình dữ liệu, cài đặt môi trường phát triển, triển khai giao diện, xử lý logic đến các công nghệ được sử dụng như Flutter, Dart, Provider và lưu trữ nội bộ bằng JSON.
+Qua quá trình thực hiện, em không chỉ 
+được nân cao
+ kiến thức về lập trình di động đa nền tảng mà còn học được cách quản lý thời gian, tổ chức công việc và giải quyết các vấn đề thực tiễn trong phát triển phần mềm.
+Em hy vọng đồ án này sẽ mang lại giá trị thực tế cho người sử dụng, đồng thời là minh chứng cho quá trình học tập và rèn luyện của em trong suốt thời gian qua.
+MỤC
+ LỤC
+CHƯƠNG 1: TỔNG QUAN VỀ ĐỀ TÀI
+ PAGEREF _Toc201294789 \h 1
+1.1.
+Bối cảnh và lý do chọn đề tài
+ PAGEREF _Toc201294790 \h 1
+1.2.
+Mục tiêu nghiên cứu
+ PAGEREF _Toc201294791 \h 1
+1.3.
+Phạm vi nghiên cứu
+ PAGEREF _Toc201294792 \h 2
+1.4.
+Đối tượng sử dựng ứng dụng
+ PAGEREF _Toc201294793 \h 3
+1.5.
+Phương pháp nghiên cứu
+ PAGEREF _Toc201294794 \h 3
+1.5.1.
+Phương pháp nghiên cứu lý thuyết
+ PAGEREF _Toc201294795 \h 3
+1.5.2.
+Phương pháp nghiên cứu thực nghiệm
+ PAGEREF _Toc201294796 \h 4
+1.5.3.
+Phương pháp kiểm tra và đánh giá
+ PAGEREF _Toc201294797 \h 4
+1.6.
+Ý
+ nghĩa khoa học và thực tiễn
+ PAGEREF _Toc201294798 \h 4
+1.6.1.
+Ý nghĩa khoa học
+ PAGEREF _Toc201294799 \h 4
+1.6.2.
+Ý nghĩa thực tiễn
+ PAGEREF _Toc201294800 \h 5
+1.7.
+Cấu trúc báo cáo
+ PAGEREF _Toc201294801 \h 5
+CHƯƠNG 2: CƠ SỞ LÝ THUYẾT VÀ CÔNG NGHỆ
+ PAGEREF _Toc201294803 \h 7
+2.1.
+Tổng quan về quản lý tài chính cá nhân
+ PAGEREF _Toc201294804 \h 7
+2.2.
+Một số mô hình quản lý chi tiêu phổ biến
+ PAGEREF _Toc201294805 \h 7
+2.3.
+Giới thiệu về Flutter Framework
+ PAGEREF _Toc201294806 \h 10
+2.3.1.
+Khái niệm và đặc điểm
+ PAGEREF _Toc201294807 \h 11
+2.3.2.
+Kiến trúc Flutter
+ PAGEREF _Toc201294808 \h 12
+2.3.3.
+Ngôn ngữ Dart
+ PAGEREF _Toc201294809 \h 13
+2.4.
+Các công nghệ và thư viện sử dựng
+ PAGEREF _Toc201294810 \h 15
+2.4.1.
+Quản lý trạng thái ( Provider )
+ PAGEREF _Toc201294811 \h 15
+2.4.2.
+Quản
+ lý dữ liệu
+ (path_provider
+)
+ PAGEREF _Toc201294812 \h 16
+2.4.3.
+Widget System
+ PAGEREF _Toc201294813 \h 18
+2.5.
+Phân tích các ứng dựng tương tự
+ PAGEREF _Toc201294814 \h 22
+2.5.1.
+Phân tích tổng hợp
+ PAGEREF _Toc201294815 \h 24
+CHƯƠNG 3: PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG
+ PAGEREF _Toc201294816 \h 26
+3.1.
+Phân tích yêu cầu hệ thống
+ PAGEREF _Toc201294817 \h 26
+3.1.1.
+Yêu cầu chức năng
+ PAGEREF _Toc201294818 \h 26
+3.1.2.
+Yêu cầu phi chức năng
+ PAGEREF _Toc201294819 \h 28
+3.1.3.
+Phân tích Actor và Use Case
+ PAGEREF _Toc201294820 \h 29
+3.2.
+Thiết kế kiến trúc hệ thống
+ PAGEREF _Toc201294821 \h 29
+3.2.1.
+Kiến trúc tổng thể
+ PAGEREF _Toc201294822 \h 29
+3.2.2.
+Thiết kế mô hình Provider
+ PAGEREF _Toc201294823 \h 30
+3.3.
+Mô hình dữ liệu JSON
+ PAGEREF _Toc201294824 \h 30
+3.3.1.
+Mô hình dữ liệu (Models)
+ PAGEREF _Toc201294825 \h 31
+3.3.2.
+Thiết kế lưu trữ JSON
+ PAGEREF _Toc201294826 \h 32
+3.3.3.
+Chiến lược tuần tự hóa/giải tuần tự
+ PAGEREF _Toc201294827 \h 33
+3.4.
+Thiết kế giao diện người dùng
+ PAGEREF _Toc201294828 \h 33
+3.4.1.
+Thiét kế mô phỏng
+ PAGEREF _Toc201294829 \h 34
+3.4.2.
+Thiết kế  trải nghiệm người dùng
+ PAGEREF _Toc201294830 \h 34
+CHƯƠNG 4: THỰC HIỆN VÀ TRIỂN KHAI
+ PAGEREF _Toc201294832 \h 36
+4.1.
+Cài đặt môi trường phát triển
+ PAGEREF _Toc201294833 \h 36
+4.2.
+Cấu trúc dự án chi tiết
+ PAGEREF _Toc201294834 \h 36
+4.3.
+Triển khai các chức năng chính
+ PAGEREF _Toc201294835 \h 37
+4.3.1.
+Màn hình chính (Home Screen)
+ PAGEREF _Toc201294836 \h 37
+4.3.2.
+Thêm/Sửa/Xóa giao dịch
+ PAGEREF _Toc201294837 \h 38
+4.3.3.
+Thống kê và báo cáo
+ PAGEREF _Toc201294838 \h 43
+4.3.4.
+Quản lý ngân sách
+ PAGEREF _Toc201294839 \h 45
+4.4.
+Quản lý trạng thái với Provider Pattern
+ PAGEREF _Toc201294840 \h 48
+4.4.1.
+Triển khai ExpenseProvider
+ PAGEREF _Toc201294841 \h 48
+4.4.2.
+Kiến trúc quản lý trạng thái
+ PAGEREF _Toc201294842 \h 49
+4.4.3.
+Đồng bộ dữ liệu JSON
+ PAGEREF _Toc201294843 \h 49
+4.5.
+Xử lý dữ liệu local
+ PAGEREF _Toc201294844 \h 49
+4.5.1.
+Triển khai dịch vụ lưu trữ
+ PAGEREF _Toc201294845 \h 50
+4.5.2.
+Chiến lược dữ liệu
+ PAGEREF _Toc201294846 \h 50
+4.5.3.
+Xác thực cấu trúc
+ PAGEREF _Toc201294847 \h 51
+4.5.4.
+Nhập/xuất dữ liệu
+ PAGEREF _Toc201294848 \h 51
+4.6.
+Thiết kế giao diện responsive
+ PAGEREF _Toc201294849 \h 51
+CHƯƠNG 5: KIỂM THỬ VÀ ĐÁNH GIÁ
+ PAGEREF _Toc201294850 \h 53
+5.1.
+Chiến lược kiểm thử
+ PAGEREF _Toc201294852 \h 53
+5.2.
+Công cụ và môi trường kiểm thử
+ PAGEREF _Toc201294853 \h 53
+5.3.
+Chiến lược kiểm thử
+ PAGEREF _Toc201294854 \h 53
+5.3.1.
+Kiểm thử đơn vị (Unit Testing)
+ PAGEREF _Toc201294855 \h 53
+5.3.2.
+Kiểm thử tích hợp (Integration Testing)
+ PAGEREF _Toc201294856 \h 54
+5.3.3.
+Kiểm thử giao diện người dùng (Widget Testing
+)
+ PAGEREF _Toc201294857 \h 55
+5.4.
+Kiểm thử thực tế trên Android Studio và thiết bị thật
+ PAGEREF _Toc201294858 \h 55
+5.5.
+Phân tích kết quả kiểm thử
+ PAGEREF _Toc201294859 \h 56
+5.6.
+Đánh giá tổng quan
+ PAGEREF _Toc201294860 \h 56
+KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+ PAGEREF _Toc201294861 \h 57
+TÀI LIỆU THAM KHẢO
+ PAGEREF _Toc201294862 \h 60
+MỤC LỤC ẢNH VÀ BẢNG
+Hình 2.1. Mô hình quay tắc 50/30/20
+ PAGEREF _Toc201296195 \h 8
+Bảng 2.1. Phân tích mô hình 6 chiếc lọ
+ PAGEREF _Toc201296196 \h 10
+Hình 2.2. Logo Flutter
+ PAGEREF _Toc201296197 \h 11
+Hình 2.3. Kiến trúc Flutter
+ PAGEREF _Toc201296198 \h 12
+Bảng 2.2 Danh sách thư viện
+ PAGEREF _Toc201296199 \h 15
+Hình 2.4. Logo Mint
+ PAGEREF _Toc201296200 \h 22
+Hình 2.5. Logo YNAB
+ PAGEREF _Toc201296201 \h 23
+Hình 2.6. Logo Money lover
+ PAGEREF _Toc201296202 \h 24
+Bảng 3.1.  Phân tích Use case
+ PAGEREF _Toc201296203 \h 29
+Bảng 3.2. Phân tích kiến trúc tổng thể
+ PAGEREF _Toc201296204 \h 30
+Bảng 3.3. Thiết kế mô hình Provider
+ PAGEREF _Toc201296205 \h 30
+Bảng 3.4. Phân tích mô hình Expense Model
+ PAGEREF _Toc201296206 \h 32
+Bảng 3.5. Phân tích mô hình Budget Model
+ PAGEREF _Toc201296207 \h 32
+Bảng 3.6.  Phân tích chiến lược tuần tự hóa/giải tuần tự
+ PAGEREF _Toc201296208 \h 33
+Bảng 3.7 Phân tích ưu điểm lưu trữ JSON
+ PAGEREF _Toc201296209 \h 33
+Bảng 4.1. Công cụ sử dụng
+ PAGEREF _Toc201296210 \h 36
+Hình 4.1. Cấu trúc dự án
+ PAGEREF _Toc201296211 \h 37
+Hình 4.2. Mình hình chính
+ PAGEREF _Toc201296212 \h 38
+Bảng 4.2. Phân trạng thái
+ PAGEREF _Toc201296213 \h 38
+Hình 4.3. Màn hình thêm/xóa giao dịch
+ PAGEREF _Toc201296214 \h 39
+Hình 4.4 Thông báo vượt ngân sách
+ PAGEREF _Toc201296215 \h 40
+Hình 4.5. Thông báo thành công
+ PAGEREF _Toc201296216 \h 41
+Hình 4.6. Màn hình sửa giao dịch
+ PAGEREF _Toc201296217 \h 42
+Bảng 4.3. Kiểm tra và xác thực
+ PAGEREF _Toc201296218 \h 43
+Hình 4.7 Màn hình thống kê
+ PAGEREF _Toc201296219 \h 44
+Hình 4.8. Màn hình ngân sách
+ PAGEREF _Toc201296220 \h 46
+Bảng 4.4. Phân tích hiệu ứng UX
+ PAGEREF _Toc201296221 \h 48
+Bảng 5.1 Môi trường kiểm thử
+ PAGEREF _Toc201296222 \h 53
+Bảng 5.2 kịch bản kiểm thử
+ PAGEREF _Toc201296223 \h 55
+Bảng 5.3 Tổng hợp kết quả kiểm thử
+ PAGEREF _Toc201296224 \h 56
+CHƯƠNG 1: 
+TỔNG QUAN VỀ ĐỀ TÀI
+Bối cảnh và lý do chọn đề tài
+Trong thời đại công nghệ số phát triển nhanh chóng như hiện nay, việc dùng ứng dụng công nghệ vào cuộc sống hàng ngày đã trở thành một phần không thể thiếu, đặc biệt là trong quản lý tài chính cá nhân. Điện thoại thông minh ngày càng phổ biến, nhu cầu sử dụng các ứng dụng tiện ích cũng tăng theo. Điều này, cho thấy rằng việc xây dựng một ứng dụng hỗ trợ theo dõi thu nhập, chi tiêu và lập kế hoạch tài chính rất cần thiết. 
+Quản lý tài chính cá nhân hiệu quả là một kỹ năng quan trọng, giúp mỗi người kiểm soát được dòng tiền của mình, tránh tình trạng chi tiêu vượt quá khả năng và hướng tới những mục tiêu dài hạn như tiết kiệm hay đầu tư. Tuy nhiên, nhiều người vẫn còn gặp khó khăn trong việc ghi chép và theo dõi chi tiêu một cách khoa học. Các phương pháp truyền thống như dùng sổ sách giấy tờ không chỉ tốn thời gian mà còn dễ dẫn đến sai sót và thiếu tính hệ thống.
+Bên cạnh đó, sự phát triển mạnh mẽ của công nghệ di động đã mở ra nhiều cơ hội mới cho các nhà phát triển ứng dụng. Trong số đó, Flutter đang dần trở thành lựa chọn yêu thích nhờ khả năng xây dựng ứng dụng đa nền tảng (Android &amp; iOS) chỉ với duy nhất một bộ mã nguồn. Nhờ vậy, Flutter giúp giảm thời gian và chi phí phát triển, đồng thời mang lại trải nghiệm tốt cho người dùng cùng giao diện trực quan, đẹp mắt.
+Với ưu điểm trên, đề tài "Xây dựng ứng dụng quản lý chi tiêu trên Flutter" được lựa chọn để đáp ứng các nhu cầu thực tế trong đời sống hàng ngày:
+Giúp người dùng dễ dàng theo dõi các khoản thu - chi một cách thuận tiện và chính xác hơn so với cách ghi sổ.
+Giúp tạo thói quen chi tiêu khoa học thông qua các tính năng sau: thiết lập ngân sách cá nhân, gửi thông báo khi gần vượt hạn mức, và hiển thị dữ liệu chi tiêu dưới dạng biểu đồ trực quan dễ hiểu.
+Mục tiêu nghiên cứu
+Mục tiêu chính của đề tài là thiết kế và xây dựng một ứng dụng quản lý chi tiêu trên  Flutter , giúp người dùng theo dõi, phân tích và kiểm soát hiệu quả các khoản thu nhập và chi tiêu cá nhân. Cụ thể, ứng dụng hướng đến những mục tiêu sau:
+Hỗ trợ người dùng ghi lại và quản lý các khoản thu - chi hàng ngày một cách nhanh chóng và thuận tiện.
+Phân loại các khoản chi tiêu theo từng danh mục cụ thể để người dùng dễ dàng theo dõi và đánh giá thói quen chi tiêu của mình.
+Trình bày thông tin tài chính dưới dạng trực quan như biểu đồ để người dùng hiểu rõ cơ cấu thu - chi.
+Thiết lập ngân sách theo tháng/năm và gửi nhắc nhở khi người dùng có nguy cơ vượt quá mức chi tiêu cho phép.
+Phát triển ứng dụng với giao diện thân thiện, dễ sử dụng, phù hợp với mọi lứa tuổi.
+Phạm 
+v
+i nghiên cứu
+Ứng dụng được phát triển với phạm vi tập trung vào các chức năng thiết yếu nhằm đảm bảo tính khả thi và hiệu quả. Đồng thời, ứng dụng hướng đến đối tượng người dùng phổ thông, đặc biệt là những người mới tiếp cận công nghệ và mong muốn có một công cụ hỗ trợ quản lý tài chính cá nhân một cách đơn giản, trực quan và dễ sử dụng.
+Ứng dụng tập trung vào 4 chức năng chính :
+Quản lý thu nhập &amp; chi tiêu: Cho phép người dùng dễ dàng ghi lại các khoản thu - chi hàng ngày.
+Phân loại giao dịch: Hỗ trợ phân loại các khoản chi tiêu theo từng danh mục cụ thể, giúp người dùng theo dõi rõ ràng và đánh giá thói quen chi tiêu của mình.
+Biểu đồ &amp; báo cáo tài chính: Trình bày dữ liệu dưới dạng biểu đồ trực quan như biểu đồ tròn từ đó giúp người dùng hình dung và phân tích tình hình tài chính một cách dễ dàng.
+Ngân sách &amp; nhắc nhở: Cho phép thiết lập ngân sách theo tháng/năm và gửi thông báo khi người dùng có nguy cơ vượt mức chi tiêu đã đặt ra.
+Ứng dụng được xây dựng trên nền tảng Flutter, cho phép chạy trên cả hai hệ điều hành Android và iOS, đồng thời tối ưu hóa trải nghiệm người dùng trên nhiều loại thiết bị khác nhau.
+Về mặt lưu trữ dữ liệu, ứng dụng sử dụng định dạng JSON kết hợp với Shared
+ 
+Preferences và Local File System của Flutter. Dữ liệu được tổ chức trong các file JSON như expenses.json, categories.json và budgets.json. Phương pháp này đảm bảo tính đơn giản, dễ debug, không yêu cầu cơ sở dữ liệu phức tạp và thuận lợi cho việc export/import dữ liệu.
+Đối tượng chính của ứng dụng là người dùng cá nhân , bao gồm học sinh - sinh viên, nhân viên văn phòng và cá nhân tự kinh doanh những người có nhu cầu theo dõi và kiểm soát tài chính cá nhân nhưng chưa có nhiều kinh nghiệm về quản lý tiền bạc.
+Giao diện ứng dụng được thiết kế đơn giản, trực quan và dễ hiểu , phù hợp với mọi lứa tuổi , đặc biệt là những người lần đầu sử dụng ứng dụng quản lý tài chính.
+Đối tượng sử dựng ứng dụng
+Ứng dụng được thiết kế dành cho nhiều nhóm người dùng khác nhau, đặc biệt là những người chưa có nhiều kinh nghiệm trong việc quản lý tài chính cá nhân. Một số nhóm đối tượng chính có thể sử dụng ứng dụng bao gồm:
+Học sinh, sinh viên: Là nhóm người dùng có thu nhập hạn chế và thường xuyên phát sinh các khoản chi tiêu nhỏ lẻ, sinh viên có thể sử dụng ứng dụng để hình thành thói quen chi tiêu hợp lý và cải thiện khả năng tiết kiệm.
+Nhân viên văn phòng: Những người có thu nhập ổn định nhưng cần theo dõi các khoản chi tiêu cố định hàng tháng như tiền thuê nhà, điện nước, ăn uống, giải trí...
+Người tự kinh doanh: Nhóm người dùng này thường có dòng tiền biến động lớn và cần theo dõi sát sao thu - chi để duy trì sự cân bằng tài chính hiệu quả.
+Gia đình: Ứng dụng cũng có thể được sử dụng bởi các gia đình muốn theo dõi các khoản chi tiêu chung và lập kế hoạch tài chính dài hạn
+.
+Phương pháp nghiên cứu
+Phương pháp nghiên cứu lý thuyết
+Để hoàn thành đề tài này em đã áp dụng phương pháp nghiên cứu khoa học kết hợp với quy trình phát triển phần mềm thực tế, bao gồm:
+Phương pháp nghiên cứu tài liệu: Thu thập và phân tích các tài liệu khoa học, bài báo chuyên ngành, documentation chính thức về Flutter Framework, Dart Programming Language, và các công nghệ liên quan. Nghiên cứu các ứng dụng quản lý tài chính cá nhân hiện có để tham khảo và rút ra bài học kinh nghiệm.
+Phương pháp phân tích và tổng hợp: Phân tích các nghiên cứu liên quan đến quản lý tài chính cá nhân, xu hướng công nghệ di động và các framework phát triển ứng dụng đa nền tảng. Tổng hợp kiến thức để xây dựng nền tảng lý thuyết vững chắc cho đề tài
+.
+Phương pháp nghiên cứu thực nghiệm
+Phương pháp thiết kế và phát triển phần mềm: Áp dụng quy trình phát triển phần mềm với các bước
+ sau
+:
+Phân tích yêu cầu và thiết kế hệ thống.
+Thiết kế giao diện người dùng (UI/UX).
+Lập trình và triển khai các chức năng.
+Kiểm thử và tối ưu hóa.
+Phương pháp lập trình hướng đối tượng: Sử dụng ngôn ngữ Dart với Flutter Framework, áp dụng các design patterns như Provider Pattern cho quản lý trạng thái, MVC Pattern cho kiến trúc ứng 
+dụng.
+Phương pháp kiểm tra và đánh giá
+Kiểm thử phần mềm: Thực hiện các loại kiểm thử:
+Unit Testing: Kiểm thử từng module riêng lẻ
+.
+Widget Testing: Kiểm thử giao diện người dùng
+.
+Integration Testing: Kiểm thử tích hợp các thành phần
+.
+Đánh giá hiệu năng: Sử dụng các công cụ profiling của Flutter để đánh giá hiệu năng ứng dụng, thời gian phản hồi, và mức tiêu thụ tài nguyên.
+Khảo sát người dùng: Thu thập phản hồi từ người dùng thử nghiệm để đánh giá tính khả dụng và trải nghiệm người dùng
+.
+Ý
+ nghĩa khoa học và thực tiễn
+Ý nghĩa khoa học
+ 
+Góp phần nghiên cứu về công nghệ Flutter: Đề tài này góp phần mở rộng kiến thức về việc ứng dụng Flutter Framework trong phát triển ứng dụng quản lý tài chính cá nhân. Thông qua việc triển khai thực tế, nghiên cứu sẽ đánh giá được ưu nhược điểm của Flutter trong lĩnh vực fintech.
+Nghiên cứu về kiến trúc ứng dụng di động: Đề tài đề xuất một kiến trúc ứng dung hiệu quả cho ứng dụng quản lý tài chính, với việc tối ưu hóa quản lý trạng thái (State Management) sử dụng Provider Pattern và local storage strategy.
+Đóng góp vào nghiên cứu UX/UI trong fintech: Nghiên cứu các nguyên tắc thiết kế giao diện người dùng thân thiện cho ứng dụng tài chính, đảm bảo tính trực quan và dễ sử dụng cho người dùng.
+Phương pháp tích hợp công nghệ: Đề tài nghiên cứu cách tích hợp hiệu quả các công nghệ như local storage, state management và responsive design trong một ứng dụng Flutter hoàn chỉnh
+.
+Ý nghĩa thực tiễn
+Giải quyết vấn đề thực tế: Ứng dụng giúp người dùng quản lý chi tiêu cá nhân một cách khoa học và hiệu quả, đáp ứng nhu cầu thực tế trong bối cảnh kinh tế hiện đại.
+Tăng cường ý thức tài chính: Ứng dụng góp phần nâng cao nhận thức về quản lý tài chính cá nhân, giúp người dùng xây dựng thói quen chi tiêu hợp lý và tiết kiệm hiệu quả.
+Sản phẩm có thể thương mại hóa: Ứng dụng được phát triển với chất lượng sản phẩm thương mại, có thể triển khai rộng rãi trên các platform như Google Play Store và Apple App Store.
+Đóng góp cho cộng đồng phát triển phần mềm: Mã nguồn và kinh nghiệm phát triển có thể chia sẻ với cộng đồng lập trình viên Flutter tại Việt Nam, góp phần phát triển hệ sinh thái công nghệ trong nước.
+Ứng dụng trong giáo dục: Dự án có thể được sử dụng làm tài liệu tham khảo cho sinh viên 
+khoa
+ Công nghệ thông 
+tin.
+Tiềm năng mở rộng: Ứng dụng có thể được phát triển thêm các tính năng như đồng bộ đám mây, AI recommendations, tích hợp banking APIs để trở thành một giải pháp quản lý tài chính toàn 
+diện.
+Cấu trúc báo cáo
+Báo cáo bao gồm
+ 5 
+chương chính như sau:
+Chương 1: Tổng quan về đề tài: 
+Đây là phần mở đầu của khóa luận, trình bày bối cảnh và tầm quan trọng của việc xây dựng ứng dụng quản lý chi tiêu. Chương này làm rõ lý do chọn đề tài, xác định mục tiêu cụ thể cần đạt được, phạm vi nghiên cứu, phương pháp tiếp cận và ý nghĩa thực tiễn của dự án. Phần này tạo nền tảng cho toàn bộ khóa luận bằng cách định hướng rõ ràng hướng nghiên cứu và phát triển.
+Chương 2: Cơ sở lý thuyết và công nghệ: 
+Chương này xây dựng nền tảng kiến thức cần thiết cho dự án. Nội dung bao gồm tổng quan về quản lý tài chính cá nhân, giới thiệu chi tiết về Flutter framework với kiến trúc và ngôn ngữ Dart, các công nghệ hỗ trợ 
+như State Management và Local Storage. Đồng thời, chương này phân tích các ứng dụng tương tự để rút ra kinh nghiệm và định hướng phát triển phù hợp.
+Chương 3: Phân tích và thiết kế hệ thống: 
+Đây là chương quan trọng trong việc chuyển từ lý thuyết sang thực hành. Chương này thực hiện phân tích yêu cầu chi tiết bao gồm chức năng và phi chức năng, xác định các Actor và Use Case. Tiếp theo là thiết kế kiến trúc hệ thống theo mô hình MVC/Provider, thiết kế cơ sở dữ liệu với các model cần thiết và thiết kế giao diện người dùng thông qua wireframe và mockup.
+Chương 4: Thực hiện và triển khai: 
+Chương này là phần cốt lõi của khóa luận, trình bày quá trình cài đặt môi trường phát triển, xây dựng cấu trúc dự án chi tiết với các thư mục và file cần thiết. Nội dung chính bao gồm triển khai các chức năng chính như màn hình trang chủ, quản lý giao dịch, thống kê báo cáo, quản lý trạng thái với Provider Pattern, xử lý dữ liệu local và thiết kế giao diện responsive.
+Chương 5: Kiểm thử và đánh giá: 
+Chương này đảm bảo chất lượng của ứng dụng thông qua các chiến lược kiểm thử toàn diện. 
+Nội dung bao gồm Unit Testing, Widget Testing và Integration Testing, kiểm thử chức năng cho các Models và Provider Logic, kiểm thử hiệu năng và trải nghiệm người dùng. Phần phân tích kết quả và đánh giá sẽ đưa ra những nhận xét khách quan về chất lượng ứng dụng.
+CHƯƠNG 2: 
+CƠ SỞ LÝ THUYẾT VÀ CÔNG NGHỆ
+Tổng quan về quản lý tài chính cá nhân
+Quản lý tài chính cá nhân là quá trình lập kế hoạch, tổ chức, chỉ đạo và kiểm soát các hoạt động tài chính của một cá nhân hoặc gia đình nhằm đạt được các mục tiêu tài chính đã đề ra. Đây là một kỹ năng quan trọng giúp mỗi người có thể sử dụng tài nguyên tài chính một cách hiệu quả, tối ưu hóa thu nhập và đảm bảo an ninh tài chính trong tương lai.
+Quản lý tài chính cá nhân bao gồm nhiều khía cạnh khác nhau như theo dõi thu chi, lập ngân sách, tiết kiệm, đầu tư và lập kế hoạch tài chính dài hạn. Trong đó, việc theo dõi và quản lý chi tiêu đóng vai trò nền tảng quan trọng, giúp cá nhân hiểu rõ về thói quen chi tiêu của mình và đưa ra những quyết định tài chính sáng suốt.
+Trong thời đại công nghệ số hiện tại, việc quản lý tài chính cá nhân đã được hỗ trợ đáng kể bởi các ứng dụng di động. Các ứng dụng này không chỉ giúp người dùng ghi chép thu chi một cách thuận tiện mà còn cung cấp các công cụ phân tích, thống kê giúp người dùng có cái nhìn tổng quan về tình hình tài chính của mình.
+Những lợi ích chính của việc quản lý tài chính cá nhân bao gồm:
+Kiểm soát được dòng tiền vào và ra, tránh tình trạng chi tiêu quá 
+mức.
+Xây dựng thói quen tiết kiệm và đầu tư hợp 
+lý.
+Chuẩn bị tốt cho các kế hoạch tài chính dài hạn như mua nhà, xe hoặc nghỉ 
+hưu.
+Giảm thiểu căng thẳng và lo lắng về vấn đề tài 
+chính.
+Tăng cường khả năng đối phó với các tình huống tài chính bất 
+ngờ.
+Một số mô hình quản lý chi tiêu phổ biến
+Việc quản lý tài chính cá nhân hiệu quả không chỉ phụ thuộc vào việc ghi chép thu chi mà còn nằm ở cách người dùng phân bổ, định hướng dòng tiền của mình theo một mô hình hợp lý. Trong suốt nhiều năm qua, các chuyên gia tài chính trên thế giới đã đề xuất nhiều mô hình quản lý tài chính nhằm đáp ứng nhu cầu của từng nhóm người dùng khác nhau. Các mô hình này có thể được chia thành hai loại chính:
+Mô hình phân bổ thu nhập theo tỷ lệ cố 
+định.
+Mô hình phân bổ theo mục tiêu và hành vi chi 
+tiêu.
+Mô hình 50/30/20 – Phân bổ đơn giản và phổ thông
+Đây là mô hình rất phổ biến vì tính đơn giản và dễ triển khai, phù hợp với cả người mới bắt đầu quản lý tài chính.
+Hình 2.1. Mô hình quay tắc 50/30/20
+Phân bổ thu nhập:
+50% – Nhu cầu thiết yếu: Bao gồm tiền thuê/mua nhà, hóa đơn điện, nước, thực phẩm, chi phí đi lại, bảo hiểm sức khỏe, giáo dục bắt 
+buộc,...
+30% – Mong muốn cá nhân: Những khoản chi không bắt buộc nhưng nâng cao chất lượng cuộc sống như giải trí, mua sắm, du lịch, ăn uống 
+ngoài,...
+20% – Tiết kiệm và đầu tư: Dành cho tiết kiệm dài hạn, đầu tư, quỹ khẩn cấp hoặc trả nợ.
+Ưu điểm:
+Dễ hiểu, dễ áp dụng với mọi tầng lớp thu nhập, có thể tích hợp vào các ứng dụng quản lý chi tiêu một cách linh hoạt và còn tạo sự cân bằng giữa hiện tại và tương lai tài chính nữa.
+Nhưng mô hình này vẫn có một số hạn chế như: không phản ánh được nhu cầu thực tế nếu thu nhập quá thấp (ví dụ: ở các thành phố lớn, chi phí thiết yếu có thể vượt quá 70%), không theo sát mục tiêu tài chính cá nhân hoặc tình huống khẩn cấp.
+Mô hình Zero-Based Budgeting – Ngân sách từ số 0
+Zero-Based Budgeting (ZBB) là phương pháp trong đó mỗi đồng tiền thu vào đều có một “nhiệm vụ” cụ thể. Tức là, vào đầu tháng, người dùng cần phân bổ toàn bộ thu nhập vào các danh mục cụ thể sao cho tổng thu – tổng chi = 0.
+Ví dụ: Nếu thu nhập tháng này là 15 triệu đồng, bạn cần chỉ định rõ:
+6 triệu cho nhu cầu thiết 
+yếu
+.
+3 triệu cho tiết 
+kiệm
+.
+2 triệu cho đầu 
+tư
+.
+1 triệu cho học 
+tập
+.
+2 triệu cho sinh hoạt gia 
+đình
+.
+1 triệu còn lại cho giải trí, thưởng cá 
+nhân
+.
+Ưu điểm:
+Có thể quản lý sát sao từng đồng tiền, tránh tiêu xài lãng phí còn thúc đẩy tư duy chủ động tài chính. Tuy vậy, nhưng vẫn có vài điểm hạn chế như: tốn thời gian lập kế hoạch, cần ghi chép chi tiết mỗi tháng, không linh hoạt nếu có thu nhập không cố định.
+Mô hình Kakeibo – Quản lý kiểu Nhật Bản
+ Kakeibo nghĩa là “sổ tài chính gia đình” là phương pháp quản lý tiền bạc lâu đời của người Nhật. Không đơn thuần là ghi chép, Kakeibo kết hợp cả yếu tố 
+“ tư
+ duy phản biện và tự vấn bản thân 
+“ trong
+ quá trình chi tiêu.
+Câu hỏi cốt lõi của Kakeibo:
+Bạn có bao nhiêu tiền?
+Bạn muốn tiết kiệm bao nhiêu?
+Bạn đang tiêu vào những gì?
+Bạn có thể cải thiện điều gì trong thói quen chi tiêu?
+Cách phân loại chi tiêu trong Kakeibo:
+Nhu cầu sinh tồn (Survival): Ăn, ở, y tế, đi 
+lại
+...
+Chi tiêu tùy ý (Optional): Giải trí, quà tặng, mua 
+sắm
+...
+Giáo dục &amp; phát triển bản thân (Culture): Sách vở, học 
+tập
+...
+Chi phí phát sinh (Extra): 
+Hư
+ hỏng
+, sự kiện đột 
+xuất
+...
+Ưu điểm:
+Mô hình này giúp ta cải thiện tư duy tiêu dùng, không yêu cầu công nghệ và đã được chứng minh hiệu quả trong xã hội tiêu dùng Nhật Bản. Mô hình này hợp với những người có yêu cầu duy trì thói quan lâu dài.
+Mô hình 6 chiếc lọ – Phân chia đa dạng
+Mô hình này chia thu nhập thành 6 lọ khác nhau để đảm bảo phát triển tài chính toàn diện:
+Lọ
+Tỷ lệ (%)
+Mục đích
+Nhu cầu thiết yếu
+55
+Ăn uống, nhà ở, điện nước...
+Tự do tài chính   
+10
+Đầu tư, tạo thu nhập thụ động...
+Tiết kiệm dài hạn
+10
+Mua tài sản, quỹ hưu trí...
+Giáo dục          
+10
+Học tập, kỹ năng mới...   
+Giải trí          
+10
+Thưởng, vui chơi, du lịch...   
+Từ thiện          
+5
+Đóng góp xã hội, gia đình...   
+Bảng 2.1. Phân tích mô hình 6 chiếc lọ
+Ưu điểm:
+Phát triển cân bằng: tài chính – tinh thần – giáo dục, rèn luyện tư duy đầu tư từ sớm, khuyến khích hành động tốt qua lọ từ thiện. Tuy nhiên, mô hình này tỷ lệ có thể không linh hoạt với người thu nhập thấp và cần sự cam kết lâu dài.
+Mô hình phong bì (Envelope System)
+Cách thực hiện: 
+Mỗi mục tiêu chi tiêu sẽ tương ứng với một phong bì (hoặc tài khoản riêng), khi chi tiêu.
+chỉ dùng tiền trong phong bì đó.
+Khi hết phong bì → không chi nữa.
+Ưu điểm:
+Giúp người tiêu dùng tự kiểm soát trực quan và dễ hiểu phù hợp với người dùng tiền mặt. Tương tự như mô hình trên vẫn có hạn chế: Không tối ưu cho người dùng thanh toán số, không hỗ trợ automation và dễ mất phong bì vật lý nếu không bảo mật tốt.
+Giới thiệu về Flutter Framework
+Flutter là một framework phát triển ứng dụng di động mã nguồn mở được Google tạo ra và công bố lần đầu vào năm 2017. Flutter cho phép các nhà phát triển xây dựng ứng dụng di động chất lượng cao cho cả hai nền tảng iOS và Android từ một codebase duy nhất, đồng thời cũng hỗ trợ phát triển ứng dụng web và desktop.
+Hình 2.2. Logo Flutter
+Flutter đã nhanh chóng trở thành một trong những framework phát triển ứng dụng di động phổ biến nhất, được nhiều công ty lớn như Alibaba, BMW, Google Ads sử dụng để phát triển các ứng dụng của họ. Sự phổ biến này đến từ những ưu điểm vượt trội mà Flutter mang lại, bao gồm hiệu suất cao, khả năng tùy biến giao diện linh hoạt và chu kỳ phát triển nhanh chóng.
+Khái niệm và đặc điểm
+Flutter là một UI toolkit được thiết kế để tạo ra các ứng dụng được biên dịch sẵn (natively compiled) cho mobile, web và desktop từ một codebase duy nhất. Điểm đặc biệt của Flutter là nó không sử dụng các component gốc của hệ điều hành mà tự vẽ lại toàn bộ giao diện người dùng thông qua rendering engine riêng của mình gọi là Skia.
+Các đặc điểm nổi bật của Flutter:
+Cross-platform Development
+:
+ Flutter cho phép viết code một lần và chạy trên nhiều nền tảng khác nhau, bao gồm iOS, Android, Web, Windows, macOS và Linux. Điều này giúp tiết kiệm đáng kể thời gian và chi phí phát triển.
+Hot Reload
+:
+ Tính năng này cho phép nhà phát triển xem ngay lập tức những thay đổi trong code mà không cần restart ứng dụng. Hot Reload giúp tăng tốc đáng kể quá trình phát triển và debug.
+Widget-based Architecture
+:
+ Mọi thứ trong Flutter đều là widget, từ các element UI cơ bản như text, button cho đến các layout phức tạp. Kiến trúc này giúp tạo ra giao diện linh hoạt và có thể tùy biến cao.
+High Performance
+:
+ Flutter được biên dịch thành machine code, giúp ứng dụng chạy với hiệu suất gần như native. Rendering engine của Flutter cũng được tối ưu hóa để đạt được 60fps hoặc thậm chí 120fps trên các thiết bị hỗ trợ.
+Rich Ecosystem
+:
+ Flutter có một hệ sinh thái phong phú với hàng nghìn package và plugin có sẵn trên pub.dev, giúp nhà phát triển dễ dàng tích hợp các tính năng phức tạp vào ứng dụng.
+Kiến trúc Flutter
+Kiến trúc của Flutter được thiết kế theo mô hình phân lớp (Layered Architecture), đảm bảo tính linh hoạt, hiệu suất cao và dễ mở rộng. Mỗi lớp có vai trò và nhiệm vụ rõ ràng, phối hợp chặt chẽ để từ mã Dart biên dịch ra giao diện người dùng mượt mà. Kiến trúc Flutter bao gồm 3 lớp chính, sắp xếp từ trên xuống dưới như sau:
+Hình 2.3. Kiến trúc Flutter
+Framework Layer (Dart):
+Đây là lớp cao nhất mà nhà phát triển tương tác trực 
+tiếp
+.
+Bao gồm các thư viện UI như Material Design (Android) và Cupertino (iOS), cung cấp sẵn các widget phong phú.
+Widgets Layer: Tạo ra các widget cơ bản (như Text, Button) và layout phức tạp (Row, Column, Grid).
+Rendering Layer: Chịu trách nhiệm xử lý bố cục (layout) và vẽ (painting) lên màn hình.
+Foundation Layer: Cung cấp các utility class, hệ thống animation, gestures, và các service cơ bản.
+Engine Layer (C/C++):
+Chứa Skia Graphics Engine, chịu trách nhiệm vẽ 2D, hỗ trợ hiển thị mượt mà với tốc độ khung hình cao (60 FPS hoặc 120 FPS tuỳ thiết bị).
+Text Rendering Engine: Hiển thị văn bản phức tạp đa ngôn ngữ.
+Bao gồm Dart Runtime, Garbage Collector và cơ chế quản lý bộ nhớ.
+Tích hợp Plugin Architecture: Kết nối tới native code (Android &amp; iOS) thông qua platform channels.
+Embedder Layer:
+Là lớp thấp nhất, phụ trách tích hợp với hệ điều hành cụ thể.
+Quản lý việc khởi động Dart VM, thiết lập window surface, quản lý threads và input events.
+Cung cấp accessibility support, xử lý các tương tác đặc thù như bàn phím, touch, gestures.
+Mỗi nền tảng (Android, iOS, web, desktop) sẽ có một Embedder riêng biệt để tương thích
+.
+Luồng hoạt động của Flutter framework:
+Quá trình từ code đến giao diện trong Flutter gồm các bước:
+UI được khai báo dưới dạng cây widget (Widget Tree).
+Flutter Framework dựng thành Element Tree, lưu trữ trạng thái và dữ liệu liên quan.
+Element Tree được chuyển thành Render Object Tree, mô tả cách layout và vẽ lên màn hình.
+Render Object được paint thành Layers.
+Các Layers được composite bởi Engine Layer và hiển thị trên thiết bị thông qua Embedder
+.
+Kiến trúc này cho phép Flutter đạt được hiệu suất cao trong khi vẫn duy trì tính linh hoạt và khả năng mở rộng.
+Ngôn ngữ 
+Dart
+ 
+Dart là ngôn ngữ lập trình chính được Google phát triển để xây dựng các ứng dụng giao diện người dùng (UI-first) hiệu quả trên đa nền tảng, đặc biệt là Flutter. Dart ra mắt từ năm 2011, có cú pháp dễ đọc, mạnh mẽ và hỗ trợ biên dịch trực tiếp thành mã máy gốc, mang lại hiệu suất cao gần như native.
+Đặc điểm nổi bật của Dart:
+Hướng đối tượng (OOP đầy đủ): Dart hỗ trợ các khái niệm OOP như class, inheritance (kế thừa), polymorphism (đa hình) và encapsulation (đóng gói). Mọi thứ đều là đối tượng cả kiểu số và hàm.
+Strong Type System: Dart sử dụng hệ thống type mạnh, kết hợp type inference thông minh, giúp code 
+an
+ toàn nhưng vẫn gọn gàng.
+Null Safety: Từ phiên bản 2.12 trở đi, Dart đã tích hợp null safety giúp tránh lỗi tham chiếu null, nâng cao độ ổn định ứng dụng.
+Asynchronous Programming: Dart hỗ trợ lập trình bất đồng bộ (async/await, Future, Stream) giúp dễ dàng gọi API hoặc xử lý I/O mà không chặn giao diện.
+Biên dịch JIT &amp; AOT: Dart hỗ trợ cả JIT (Just-In-Time) để hot reload nhanh trong quá trình phát triển và AOT (Ahead-Of-Time) để tối ưu khi build release.
+Garbage Collection: Hệ thống quản lý bộ nhớ tự động, tự thu hồi các object không còn được tham chiếu.
+Ví dụ 
+code
+ Dart:
+// Định nghĩa class
+class User {
+  final String 
+name;
+  final int 
+age;
+  
+User(
+{required this.name, required this.age}
+);
+  void 
+introduce(
+) {
+    
+print(
+'Hello, I am $name and I am $age years old'
+);
+  }
+}
+// Hàm bất đồng bộ
+Future&lt;String&gt; 
+fetchUserData(
+) async {
+  await Future.delayed(
+Duration(
+seconds: 2)
+);
+  return 'User data loaded
+';
+}
+// Hàm main
+void 
+main(
+) async {
+  var user = 
+User(
+name: 'John', age: 25
+);
+  
+user.introduce
+(
+);
+  String data = await 
+fetchUserData();
+  print(data
+);
+}
+Ngoài ra, Dart hỗ trợ các kiểu dữ liệu List, Set, Map cùng nhiều phương thức tiện ích giúp xử lý tập dữ liệu linh hoạt.
+ Với khả năng biên dịch native + tối ưu UI, Dart trở thành lựa chọn lý tưởng cho phát triển ứng dụng Flutter trên đa nền tảng
+.
+Các công nghệ và thư viện sử dựng
+Ứng dụng quản lý chi tiêu được phát triển dựa trên Flutter, tận dụng các thư viện phổ biến để đảm bảo hiệu suất cao, dễ bảo trì và hỗ trợ hoạt động ngoại tuyến. 
+Các công nghệ chính được sử dụng gồm:
+Công nghệ / Thư viện
+Mục đích
+provider
+Quản lý trạng thái (State Management)
+path_provider
+Xác định thư mục cục bộ để lưu file JSON
+flutter_local_notifications
+Gửi thông báo cục bộ (nhắc nhở, cảnh báo ngân sách)
+fluttertoast
+Hiển thị toast message ngắn trong UI
+Bảng 2.2 Danh sách thư viện
+Việc lựa chọn các thư viện này dựa trên tiêu chí: phổ biến, dễ học, được Flutter community khuyến nghị và hoạt động ổn định trên cả Android và iOS.
+Quản lý trạng thái
+ ( Provider )
+Việc quản lý trạng thái hiệu quả giúp đảm bảo giao diện người dùng luôn phản ánh đúng dữ liệu hiện tại và tương tác mượt mà giữa các component khác nhau trong ứng dụng.
+P
+rovider là thư viện quản lý trạng thái được chính Google gợi ý dùng với Flutter. Nó hoạt động trên cơ chế InheritedWidget kết hợp với ChangeNotifier.
+Ưu điểm:
+Đơn giản, dễ học cho mọi cấp độ.
+Tách riêng logic xử lý dữ liệu với giao diện (UI).
+Chỉ rebuild các widget cần thiết, tối ưu performance.
+Hỗ trợ test unit dễ 
+dàng
+.
+Ví
+ dụ:
+// Model Provider
+class ExpenseProvider extends ChangeNotifier {
+  List&lt;Expense&gt; _expenses = [
+];
+  List&lt;Expense&gt; get expenses =&gt; _
+expenses;
+  void 
+addExpense(
+Expense 
+expense) {
+    _expenses.add(expense
+);
+    
+notifyListeners();
+  }
+  
+void
+ 
+removeExpense(
+String 
+id) {
+    _
+expenses.removeWhere
+((expense) =&gt; expense.id == id
+);
+    
+notifyListeners();
+  }
+}
+// Khởi tạo Provider trong 
+main.dart
+MultiProvider(
+  providers: [
+    ChangeNotifierProvider(create:(_)
+ 
+=&gt; ExpenseProvide
+()),
+  ],
+  child: 
+MyApp(
+),
+);
+// Sử dụng Provider trong Widget
+Consumer&lt;ExpenseProvider
+&gt;(
+  builder: (context, provider, 
+_) {
+    return ListView.builder(
+      itemCount: 
+provider.expenses
+.length,
+      itemBuilder: (_, 
+index) {
+        return Text(
+provider.expenses
+[index
+].title);
+      },
+    );
+  },
+);
+Trong ứng dụng quản lý chi tiêu, Provider được sử dụng để quản lý các trạng 
+thái: 
+danh sách giao dịch, 
+ngân sách, số dư và cài đặt thông báo
+.
+Quản
+ lý dữ liệu
+ (path_provider
+)
+Trong ứng dụng quản lý chi tiêu này, dữ liệu được lưu trữ hoàn toàn cục bộ dưới dạng các file JSON trên bộ nhớ của thiết bị, thông qua thư viện path_provider và thư viện chuẩn dart:io. Đây là giải pháp lưu trữ nhẹ, dễ triển khai, dễ backup và đảm bảo hoạt động offline, phù hợp cho ứng dụng không yêu cầu đồng bộ đám mây.
+Thành phần chính:
+File 
+expenses.json
+: lưu danh sách tất cả các giao dịch (thu nhập và chi tiêu).
+File 
+budgets.json
+: lưu danh sách các ngân sách mà người dùng đặt ra.
+LocalStorageService: lớp dịch vụ chịu trách nhiệm đọc/ghi dữ liệu từ/đến các file này.
+Cách hoạt động:
+Khi ứng dụng khởi động, ExpenseProvider sẽ gọi 
+loadFromLocalStorage(
+). Phương thức này sử dụng LocalStorageService để tải dữ liệu từ file JSON và cập nhật các danh sách _expenses và _budgets.
+Mỗi khi thêm, chỉnh sửa hoặc xoá giao dịch hoặc ngân sách, ExpenseProvider sẽ tự động gọi 
+saveToLocalStorage(
+) để ghi
+ 
+dữ liệu mới nhất xuống các file.
+Nếu file chưa tồn tại, LocalStorageService sẽ tạo sẵn dữ liệu mẫu để người dùng có thể trải nghiệm ngay.
+Người dùng cũng có thể backup dữ liệu bằng tính năng export/import: các file JSON sẽ được chuyển thành một chuỗi JSON duy nhất, dễ sao lưu, chia sẻ hoặc phục hồi trên thiết bị khác.
+Code:
+// Lấy thư mục Documents
+final directory = awaitgetApplicationDocumentsDirectory
+ 
+();
+// Ghi danh sách expenses xuống file expenses.json
+final file = File('${directory.path}/expenses.json');
+await file.writeAsString(jsonEncode(expenses.map((e) =&gt; e.toJson()).toList()));
+// Đọc danh sách expenses từ file
+final contents = await file.readAsString();
+final List&lt;dynamic&gt; jsonData = jsonDecode(contents);
+final expenses = jsonData.map((json) =&gt; Expense.fromJson
+ 
+(json)).toList()
+;
+Ưu điểm so với các giải pháp lưu trữ khác:
+Hoạt động offline 100%, không phụ thuộc vào kết nối Internet.
+Không cần backend server, dễ triển khai và bảo trì.
+Dữ liệu ở định dạng JSON thuần, dễ đọc, dễ xuất/nhập và di chuyển.
+Không cần dùng database phức tạp như SQLite, phù hợp với quy mô ứng dụng quản lý chi tiêu cá nhân.
+Widget System
+Widget System là thành phần cốt lõi trong kiến trúc Flutter, nơi toàn bộ giao diện người dùng của ứng dụng được xây dựng hoàn toàn dựa trên các widget. Mọi yếu tố hiển thị trên màn hình từ một dòng chữ, nút bấm, biểu tượng cho đến các layout phức tạp đều là các widget được tổ chức thành một cây widget (
+widget tree
+).
+Trong ứng dụng Quản lý chi tiêu, Widget System được áp dụng một cách linh hoạt, có tổ chức, giúp giao diện trực quan, dễ mở rộng và dễ bảo trì. Việc tách các phần tử giao diện thành widget riêng biệt còn giúp tái sử dụng code và giảm thiểu lỗi khi chỉnh sửa
+Phân loại Widget
+ trong dự án
+:
+Hệ thống widget trong ứng dụng được chia làm 
+3
+ nhóm chính
+:
+StatelessWidget
+:
+ 
+Là widget bất biến, không lưu trữ trạng thái bên trong, dùng cho các thành phần tĩnh như:
+B
+alanceCard
+: 
+hiển thị số dư, thu nhập, chi tiêu.
+RecentTr
+ansactions
+: 
+hiển thị danh sách giao dịch mới nhất.
+CategoryItem, 
+BudgetCard
+: 
+hiển thị thông tin ngân sách từng danh mục.
+Ưu điểm:
+ dễ kiểm soát, không cần quản lý state cục bộ.
+Code: 
+class BalanceCard extends StatelessWidget {
+  final double balance;
+  final String title;
+  final Color color;
+  const BalanceCard({
+    Key? key,
+    required this.balance,
+    required this.title,
+    required this.color,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+           title,
+           style: TextStyle(
+color: Colors.white, 
+fontSize:14),
+          ),
+          SizedBox(height: 8),
+          Text(
+            '${balance.toStringAsFixed(2)} VNĐ',
+            style: TextStyle(
+color: Colors.white, 
+fontSize: 24),
+          ),
+        ],
+      ),
+    );
+  }
+}
+StatefulWidget
+Là widget có trạng thái, cho phép thay đổi dữ liệu nội bộ và tự động rebuild UI khi state thay đổi.
+ 
+Dùng cho các màn hình và form có logic nhập liệu, validate hoặc cần điều chỉnh dữ liệu dựa vào tương tác.Ví dụ:
+AddExpenseScreen màn hình thêm/chỉnh sửa giao dịch với TextEditingController, DatePicker.
+BudgetFormDialog form nhập ngân sách cho từng danh mục.
+Các màn hình có BottomNavigationBar giữ state để chuyển tab: Home, Budget, Statistics.
+Code:
+class AddExpenseScreen extends StatefulWidget {
+  @override
+  _AddExpenseScreenState
+ 
+createState()
+ 
+=&gt;_AddExpenseScreen
+ 
+State();
+}
+Class
+ 
+_AddExpenseScreenState
+ 
+extends
+ 
+State
+ 
+&lt;AddExpenseScreen&gt; {
+  final _titleController = TextEditingController();
+  final _amountController = TextEditingController();
+  DateTime _selectedDate = DateTime.now();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+title:
+Text('Thêm Giao Dịch')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+controller: _titleController, 
+decoration: InputDecoration(
+labelText: 'Tiêu đề')),
+            TextField(
+controller: _amountController,
+decoration: InputDecoration
+(labelText: 'Số tiền')),
+            ElevatedButton(
+              onPressed: _pickDate,
+              child: Text(
+'Chọn ngày: ${_selectedDate.toLocal()
+ 
+}'.split(' ')[0]),
+            ),
+            ElevatedButton(
+              onPressed: _saveExpense,
+              child: Text('Lưu'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+  void _pickDate() async {
+    final date = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: DateTime(2020),
+      lastDate: DateTime(2100),
+    );
+    if (date != null) {
+      setState(() {
+        _selectedDate = date;
+      });
+    }
+  }
+  void _saveExpense() {
+    // Validate và lưu expense qua Provider
+  }
+}
+Widget composition (Tổ hợp &amp; tái sử dụng
+)
+Flutter khuyến khích thiết kế UI theo hướng tổ hợp widget nhỏ, kết hợp thành các màn hình phức tạp. 
+Trong ứng dụng quản lý chi tiêu:
+HomeScreen kết hợp BalanceCard, RecentTransactions, FloatingActionButton để thêm mới.
+BudgetScreen ghép các BudgetCard thành danh sách ngân sách.
+StatisticsScreen ghép biểu đồ Pie Chart, danh sách thống kê theo danh mục.
+Các widget đều có tham số để dễ tái sử dụng, style và logic độc lập.
+Việc này đảm bảo:
+ 
+g
+iao diện rõ ràng, dễ 
+đọc
+, 
+d
+ễ sửa đổi 1 phần mà không ảnh hưởng phần khác
+ và 
+c
+ó thể test unit riêng từng widget.
+Các nguyên tắc tối ưu Widget System
+Sử dụng const constructor cho các widget không thay đổi.
+Sử dụng ListView.builder thay cho Column hoặc ListView cố định số phần tử.
+Áp dụng Consumer hoặc Selector của Provider để rebuild widget tối ưu.
+Tách layout thành các widget nhỏ trong widgets/ thay vì viết logic phức tạp trong 
+build(
+).
+Phân tích các ứng dựng tương tự
+Việc nghiên cứu và phân tích các ứng dụng quản lý chi tiêu hiện có trên thị trường là bước quan trọng để hiểu rõ nhu cầu người dùng, xu hướng thiết kế và các tính năng cốt lõi cần thiết. Qua đó, có thể xác định được những điểm mạnh cần học hỏi và những hạn chế cần khắc phục trong quá trình phát triển ứng dụng mới.
+Mint - Personal Finance &amp; Money
+Hình 2.4. Logo Mint
+Mint là một trong những ứng dụng quản lý tài chính cá nhân phổ biến nhất, được phát triển bởi Intuit. Ứng dụng này nổi tiếng với khả năng tự động phân loại giao dịch và đồng bộ hóa với nhiều tài khoản ngân hàng.
+Điểm mạnh:
+Tự động import và phân loại giao dịch từ tài khoản ngân 
+hàng
+.
+Giao diện trực quan với biểu đồ và thống kê chi 
+tiết
+.
+Tính năng alert khi vượt ngân 
+sách
+.
+Theo dõi credit score và đưa ra lời khuyên tài 
+chính
+.
+Báo cáo tài chính tổng hợp hàng 
+tháng
+.
+Điểm yếu:
+Chỉ hỗ trợ tại một số quốc gia nhất 
+định
+.
+Yêu cầu kết nối internet liên 
+tục
+.
+Có thể gặp vấn đề bảo mật khi liên kết với tài khoản ngân 
+hàng
+.
+Giao diện có thể phức tạp cho người dùng 
+mới
+.
+YNAB (You Need 
+A
+ Budget)
+Hình 2.5. Logo YNAB
+YNAB tập trung vào phương pháp budgeting "zero-based budgeting", yêu cầu người dùng phân bổ từng đồng một cách có ý thức.
+Điểm mạnh:
+Triết lý budgeting rõ ràng và hiệu 
+quả
+.
+Tính năng goal tracking mạnh 
+mẽ
+.
+Hỗ trợ đồng bộ hóa multi-
+device
+.
+Cộng đồng người dùng tích 
+cực
+.
+Báo cáo chi tiết về thói quen chi 
+tiêu
+.
+Điểm yếu:
+Phí subscription cao (hơn $80/năm)
+.
+Learning curve khá dốc cho người 
+mới
+.
+Giao diện có phần lỗi 
+thời
+.
+Ít tính năng 
+automation
+.
+Money Lover - Expense Tracker
+Hình 2.6. Logo Money lover
+Money Lover là ứng dụng xuất xứ từ Việt Nam, có thiết kế thân thiện với người dùng châu Á.
+Điểm mạnh:
+Giao diện đẹp với nhiều 
+theme
+.
+Hỗ trợ tiếng Việt 
+tốt
+.
+Tính năng savings 
+goals
+.
+Budget tracking với visual 
+indicators
+.
+Family sharing ca
+pabilities
+.
+Điểm yếu:
+Một số tính năng yêu cầu 
+premium
+.
+Đồng bộ hóa đôi khi không ổn 
+định
+.
+Quảng cáo trong phiên bản miễn 
+phí
+.
+Phân tích tổng hợp
+Từ việc nghiên cứu các ứng dụng trên, có thể rút ra một số insights quan trọng:
+Xu hướng thiết kế: 
+G
+iao diện đơn giản, trực quan với màu sắc dễ nhìn. Việc hiển thị thông tin tài chính cần rõ ràng và dễ hiểu ngay từ cái nhìn đầu tiên.
+Tính năng cốt lõi: Tất cả các ứng dụng đều có các tính năng cơ bản như ghi chép thu chi, phân loại giao dịch, thiết lập ngân sách và báo cáo thống kê. Điểm khác biệt nằm ở cách thức triển khai và mức độ automation.
+Vấn đề bảo mật: Nhiều ứng dụng yêu cầu kết nối với tài khoản ngân hàng, tạo ra mối quan ngại về bảo mật. Ứng dụng offline có thể là giải pháp cho những người dùng ưu tiên privacy.
+Monetization: Hầu hết ứng dụng sử dụng model freemium, với các tính năng premium như cloud sync, advanced reports, unlimited budgets.
+Localization: Ứng dụng thành công thường có khả năng tùy biến theo từng thị trường, bao gồm ngôn ngữ, đơn vị tiền tệ, và các thói quen địa phương.
+Cơ hội cải tiến:
+Dựa trên phân tích trên, ứng dụng quản lý chi tiêu mới có thể tập trung vào:
+Cân bằng giữa tính đơn giản và đầy đủ tính năng.
+Tối ưu hóa trải nghiệm offline.
+Cải thiện data visualization với biểu đồ interactive.
+Tích hợp AI để đưa ra insights thông minh.
+Hỗ trợ tốt hơn cho multiple currencies và localization.
+CHƯƠNG 3: PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG
+Phân tích yêu cầu hệ thống
+Ứng dụng Quản lý chi tiêu cá nhân được phát triển nhằm hỗ trợ người dùng dễ dàng kiểm soát thu nhập, chi tiêu, thiết lập hạn mức chi tiêu theo danh mục và đưa ra các cảnh báo kịp thời khi mức chi tiêu vượt quá kế hoạch.
+Hệ thống được xây dựng trên mô hình lưu trữ cục bộ (Local Storage), kết hợp Provider Pattern để quản lý trạng thái toàn cục, đảm bảo dữ liệu đồng nhất trên toàn bộ giao diện. Tất cả nghiệp vụ chính như thêm/sửa/xóa giao dịch, quản lý ngân sách, tính toán thống kê, kiểm tra ngân sách đều được xử lý tập trung trong ExpenseProvider.
+Yêu cầu được chia thành 3 nhóm:
+Yêu cầu chức năng: Quản lý giao dịch, ngân sách, xuất nhập dữ liệu, thống kê chi tiêu.
+Yêu cầu phi chức năng: Giao diện thân thiện, tốc độ xử lý nhanh, hoạt động không cần Internet, đồng bộ dữ liệu mượt mà.
+Use Case: Người dùng cá nhân thao tác qua giao diện di động để thêm giao dịch, đặt ngân sách, kiểm tra báo cáo và xuất/nhập dữ liệu.
+Yêu cầu chức năng
+Các chức năng chính của hệ thống bao gồm:
+Quản lý giao dịch (Expense)
+Tạo giao dịch:
+ 
+Mỗi giao dịch bao gồm:
+title (tiêu đề)
+amount (số tiền)
+date (ngày thực hiện)
+type (income hoặc expense)
+category (phân loại: ExpenseCategory hoặc IncomeCategory)
+note (ghi chú)
+id tự động sinh
+createdAt ghi thời điểm khởi tạo.
+Phân loại:
+Loại Thu nhập (Income)
+Loại Chi tiêu (Expense)
+ 
+Mỗi loại có các danh mục riêng: lương, thưởng, ăn uống, đi 
+lại,...
+Cập nhật/xóa:
+ 
+Người dùng có thể chỉnh sửa hoặc xóa bất kỳ giao dịch nào. Mọi thay đổi được lưu ngay xuống file JSON qua LocalStorageService.
+Kiểm tra ngân sách tự động:
+ 
+Khi thêm giao dịch chi tiêu:
+Hệ thống tự tính số tiền đã chi trong danh mục đó.
+Nếu đạt ≥80% hạn mức, hiển thị cảnh báo.
+Nếu vượt 100% hạn mức, gửi push notification (bằng NotificationService).
+Quản lý ngân sách (Budget)
+Thiết lập ngân sách:
+ 
+Người dùng đặt hạn mức (limit) cho từng danh mục chi tiêu, cùng khoảng thời gian áp dụng (startDate → endDate).
+Cập nhật/xóa ngân sách:
+ 
+Dễ dàng điều chỉnh hoặc xóa hẳn ngân sách đã đặt.
+Kiểm tra tự động:
+ 
+Mỗi khi có giao dịch mới, hệ thống:
+Tính tổng chi tiêu thực tế của danh mục.
+Tính phần trăm sử dụng ngân sách.
+Nếu gần hoặc vượt hạn mức, kích hoạt logic cảnh 
+báo(BudgetCheckResult
+ 
+)
+.
+Thống kê và truy vấn dữ liệu
+Tổng hợp thu/chi: Hệ thống cung cấp các hàm tính tổng thu nhập, chi tiêu, số dư hiện tại.
+Báo cáo theo thời gian: Có thể thống kê theo:
+Tháng hiện tại (getCurrentMonthTransactions)
+Tuần hiện tại
+Khoảng thời gian tùy chọn
+Thống kê theo danh mục: Tính tổng theo từng loại thu nhập hoặc chi tiêu.
+Quản lý dữ liệu 
+cục
+ bộ
+Toàn bộ dữ liệu giao dịch và ngân sách được lưu dưới dạng file JSON thông qua LocalStorageService.
+Hỗ trợ xuất dữ liệu (export) thành file JSON để sao lưu hoặc chia sẻ.
+Hỗ trợ nhập dữ liệu (import) từ file JSON để phục hồi.
+Cho phép reset toàn bộ dữ liệu và khởi tạo lại dữ liệu mẫu.
+Tính năng phụ trợ
+Sắp xếp: Giao dịch luôn được hiển thị theo thứ tự ngày mới nhất trước (sortedExpenses).
+Lọc: Theo ngày, tuần, tháng, hoặc danh mục.
+Xem thống kê: Tổng quan theo biểu đồ, bảng so sánh kỳ trước.
+Yêu cầu phi chức năng
+Ngoài các chức năng nghiệp vụ, hệ thống cần đảm bảo các yêu cầu phi chức năng nhằm nâng cao trải nghiệm người dùng và tính ổn định lâu dài của ứng dụng:
+Hiệu suất 
+Ứng dụng hoạt động mượt mà, xử lý nhanh trên thiết bị di động.
+Dữ liệu được truy xuất và lưu trữ cục bộ bằng JSON thay vì gọi API, giúp tăng tốc độ xử lý và làm việc offline.
+Khả năng mở rộng
+Cấu trúc mô hình tách biệt rõ models, services, providers, screens, dễ dàng mở rộng thêm tính năng như Cloud Sync, AI gợi ý tài chính.
+Hệ thống hỗ trợ thêm nhiều danh mục giao dịch và ngân sách trong tương lai mà không cần thay đổi kiến trúc cốt lõi.
+Khả năng bảo trì
+Code rõ ràng, tổ chức logic trong ExpenseProvider, sử dụng Provider Pattern, giúp dễ kiểm soát trạng thái và debug.
+Các chức năng quan trọng như import/export, lưu trữ file JSON đều tách thành các service riêng 
+biệt
+.
+Tính
+ 
+linh hoạt
+Có thể dễ dàng thay thế hệ thống lưu trữ JSON bằng database hoặc Cloud Storage nếu cần.
+Logic kiểm tra ngân sách và cảnh báo được thiết kế mềm dẻo, dễ chỉnh sửa điều kiện cảnh báo.
+Khả năng hoạt động ngoại tuyến (
+Offline
+)
+Dữ liệu được lưu cục bộ hoàn toàn bằng File + JSON, không phụ thuộc vào internet.
+Người dùng vẫn có thể xem, chỉnh sửa và thêm dữ liệu mọi lúc.
+Khả năng khôi phục và sao lưu
+Cho phép export toàn bộ dữ liệu sang chuỗi JSON.
+Import dễ dàng lại vào ứng dụng ở lần cài đặt mới hoặc chuyển sang thiết bị khác.
+Phân tích Actor và Use Case
+Actor chính: Người dùng cá nhân: Là người quản lý tài chính cá nhân, không yêu cầu kiến thức kỹ thuật, tương tác thông qua giao diện người dùng.
+Use Case chính:
+Tên Use Case
+Mô tả
+Ghi lại giao dịch
+Người dùng nhập thông tin chi tiêu hoặc thu nhập hàng ngày.
+Quản lý danh mục
+Hệ thống hỗ trợ phân loại rõ giữa thu nhập và chi tiêu.
+Thiết lập ngân sách
+Người dùng thiết lập hạn mức cho từng danh mục để kiểm soát tài chính.
+Theo dõi chi tiêu
+Người dùng xem báo cáo chi tiết và biểu đồ thống kê theo thời gian và danh mục.
+Nhận thông báo cảnh báo
+Hệ thống cảnh báo khi chi tiêu sắp vượt hoặc vượt quá ngân sách đã đặt.
+Xuất dữ liệu JSON
+Người dùng sao lưu toàn bộ dữ liệu thành một chuỗi JSON.
+Nhập dữ liệu JSON
+Người dùng phục hồi lại dữ liệu từ bản sao lưu.
+Xóa dữ liệu
+Người dùng có thể xóa toàn bộ dữ liệu và khởi tạo lại dữ liệu mẫu.
+Bảng 3.1.  Phân tích Use case
+Thiết kế kiến trúc hệ thống
+Kiến trúc tổng thể
+Hệ thống thiết kế theo hướng Component-Based Architecture, tận dụng Provider Pattern để đồng bộ dữ liệu giữa các widget Flutter.
+ 
+Mô hình tổng thể gồm các thành phần chính:
+Thành phần
+Vai trò
+main.dart
+Điểm entry, đăng ký ExpenseProvider toàn app.
+ExpenseProvider
+Quản lý trạng thái toàn cục: danh sách giao dịch, ngân sách, số dư, logic kiểm tra ngân sách.
+LocalStorageService
+Lưu/đọc file JSON, import/export dữ liệu.
+models/
+Định nghĩa Expense, Budget.
+screens/
+Giao diện Home, Statistics, Budget, Add Expense.
+widgets/
+Thành phần giao diện tái sử dụng: BalanceCard, ExpenseItem, CategoryChart.
+Bảng 3.2. Phân tích kiến trúc tổng thể
+Luồng hoạt động:
+main.dart
+ khởi tạo ExpenseProvider, load dữ liệu từ JSON.
+Giao diện (screens/) lắng nghe thay đổi qua Provider.of&lt;ExpenseProvider&gt;.
+Khi thêm/xóa/sửa, ExpenseProvider:
+Cập nhật state.
+Gọi 
+notifyListeners(
+).
+Ghi dữ liệu xuống file JSON.
+Thiết kế mô hình Provider
+Ứng dụng áp dụng MVVM mở rộng với Provider
+:
+Tầng
+Vai trò
+Model (Expense, Budget)
+Định nghĩa cấu trúc dữ liệu, serialization JSON.
+ViewModel (ExpenseProvider)
+Quản lý logic nghiệp vụ: thêm/sửa/xóa, kiểm tra ngân sách, xử lý thống kê.
+View (UI) (screens/, widgets/)
+Hiển thị giao diện và lắng nghe thay đổi từ Provider để cập nhật.
+Bảng 3.3. Thiết kế mô hình Provider
+Các đặc điểm nổi bật:
+Trạng thái toàn cục dễ dàng chia sẻ giữa các màn hình.
+Toàn bộ thay đổi về dữ liệu đều đi qua ExpenseProvider, tránh sai lệch.
+Kiểm tra logic (budget, thống kê) được gắn trong Provider, giúp UI đơn giản hơn.
+Mô hình dữ liệu JSON
+Ứng dụng quản lý chi tiêu cá nhân lưu trữ toàn bộ dữ liệu hoàn toàn cục bộ (offline) bằng các file JSON, thay thế cho việc dùng cơ sở dữ liệu hoặc backend phức tạp. Đây là 
+giải pháp phù hợp cho ứng dụng quy mô nhỏ đến trung bình, đảm bảo tốc độ truy xuất nhanh, không phụ thuộc internet, dễ sao lưu và khôi phục.
+Các file dữ liệu chính:
+expenses.json
+ — Danh sách giao dịch (Expense)
+budgets.json
+ — Danh sách ngân sách (Budget)
+Mô hình dữ liệu (Models)
+Expense Model - 
+expense.dart
+Dữ
+ liệu một giao dịch được lưu với cấu trúc JSON như sau:
+{
+  "id": "1687292828000",
+  "title": "Mua sắm hàng tháng",
+  "amount": 1500000,
+  "date": "2025-05-15T00:00:00.000Z",
+  "timezoneOffset": 7,
+  "expenseCategory": 0,
+  "incomeCategory": null,
+  "type": 1,
+  "createdAt": "2025-05-15T00:00:00.000Z",
+  "updatedAt": null
+}
+Trường
+Kiểu
+Mô tả
+id
+String
+ID duy nhất (thường là
+ 
+DateTime.now()
+ 
+.millisecondsSinceEpoch
+)
+title
+String
+Tên giao dịch
+amount
+double
+Số tiền
+date
+DateTime (ISO)
+Ngày giao dịch
+timezoneOffset
+int
+Múi giờ người dùng
+type
+int
+0: thu nhập, 1: chi tiêu
+expenseCategory
+int/null
+Index enum nếu là chi tiêu
+incomeCategory
+int/null
+Index enum nếu là thu nhập
+createdAt
+DateTime (ISO)
+Ngày tạo
+updatedAt
+DateTime/null
+Ngày cập nhật gần nhất
+Bảng 3.4. Phân tích mô hình Expense Model
+Dữ liệu được xử lý qua:
+toJson(
+): chuyển đối tượng Expense thành JSON Map.
+fromJson(
+): tạo đối tượng Expense từ JSON Map.
+Budget Model - 
+budget.dart
+Cấu trúc JSON của một ngân sách:
+{
+  "id": "1687392929000",
+  "category": 0,
+  "limit": 2000000,
+  "startDate": "2025-05-01T00:00:00.000Z",
+  "endDate": "2025-05-31T23:59:59.000Z",
+  "createdAt": "2025-05-01T00:00:00.000Z",
+  "updatedAt": null
+}
+Trường
+Kiểu
+Mô tả
+Id
+String
+ID duy nhất
+category
+int
+Chỉ số ExpenseCategory
+limit
+double
+Hạn mức ngân sách
+startDate
+DateTime (ISO)
+Thời gian bắt đầu tính ngân sách
+endDate
+DateTime (ISO)
+Thời gian kết thúc
+createdAt
+DateTime
+Thời điểm tạo ngân sách
+updatedAt
+DateTime/null
+Lần cập nhật gần nhất (nếu có)
+Bảng 3.5. Phân tích mô hình Budget Model
+Thiết kế lưu trữ JSON
+Việc lưu và tải dữ liệu được thực hiện qua class LocalStorageService trong utils.
+File cấu trúc:
+expenses.json
+ (List)
+budgets.json
+ (List)
+Quy trình:
+Khi ứng dụng khởi động:
+Gọi 
+loadExpenses(
+) và 
+loadBudgets(
+) từ file.
+Nếu không tồn tại file → tạo dữ liệu mẫu.
+Khi dữ liệu thay đổi:
+Gọi 
+saveExpenses(
+) và 
+saveBudgets(
+) để ghi vào file.
+Toàn bộ được xử lý bất đồng bộ (Future) để không ảnh hưởng đến giao diện.
+Chiến lược tuần tự hóa/giải tuần tự
+Hoạt động
+Mô tả
+Serialize
+Sử dụng 
+toJson(
+) trong Expense &amp; Budget để chuyển thành JSON Map
+Deserialize
+Sử dụng 
+fromJson(
+Map&lt;String, dynamic&gt;) để tạo lại đối tượng từ JSON
+Enum mapping
+Các giá trị enum được lưu dưới dạng index và phục hồi bằng Enum.values[index]
+Thời gian
+Dùng ISO-8601 
+(.toIso
+8601
+String(
+)), đảm bảo tính tương thích và dễ parse
+Tự động sinh ID
+Nếu không có id, mặc định lấy theo 
+DateTime.now()
+ 
+.millisecondsSinceEpoch
+Bảng 3.6.  Phân tích chiến lược tuần tự hóa/giải tuần tự
+Ưu điểm của lưu trữ JSON local:
+Ưu điểm
+Mô tả
+Offline 100%
+Không cần kết nối mạng
+Dễ debug
+File JSON có thể mở bằng Notepad, VSCode
+Hiệu suất cao
+Load/sync nhanh cho dữ liệu nhỏ đến trung bình
+Mở rộng dễ
+Có thể nâng cấp lên Cloud API mà không đổi cấu trúc
+Tùy biến dữ liệu mẫu
+Có sẵn hàm _
+createSampleData(
+) khi không có file
+Bảng 3.7 Phân tích ưu điểm lưu trữ JSON
+Thiết kế giao diện người dùng
+Thiết kế giao diện người dùng (UI) đóng vai trò quan trọng trong trải nghiệm người dùng (UX). Ứng dụng được thiết kế đơn giản, dễ sử dụng, phù hợp với người dùng phổ thông. Màu sắc chủ đạo là xanh dương, biểu thị tính chuyên nghiệp và đáng tin cậy trong quản lý tài 
+chính.
+Thiét kế mô phỏng
+Trang chủ (Home Tab):
+Thanh AppBar: Tiêu đề "Quản lý Chi tiêu".
+Thành phần chính:
+BalanceCard: hiển thị tổng số dư, tổng thu nhập và tổng chi tiêu.
+RecentTransactions: danh sách cuộn hiển thị các giao dịch gần nhất
+Floating Action Button (FAB):
+Vị trí góc dưới bên phải.
+Khi nhấn vào sẽ điều hướng đến màn hình AddExpenseScreen để thêm giao dịch mới.
+Điều hướng chính (Bottom Navigation Bar):
+Tab 1: Trang chủ – Hiển thị tổng quan số dư và danh sách giao dịch gần nhất.
+Tab 2: Thống kê – Biểu đồ, phân tích thu/chi theo danh mục, thời gian.
+Tab 3: Ngân sách – Quản lý ngân sách của từng danh mục chi tiêu.
+Màn hình thêm giao dịch (Add Screen):
+Giao diện nhập liệu: tiêu đề, số tiền, loại giao dịch (thu/chi), danh mục, ghi chú, ngày thực hiện.
+Có thể chọn loại giao dịch → hệ thống tự điều chỉnh dropdown danh mục phù 
+hợp
+.
+Thiết kế  trải nghiệm người dùng
+Trải nghiệm người dùng:
+Thiết kế đơn giản, trực quan, phù hợp với người không rành công nghệ.
+Giao diện chính chỉ hiển thị những thông tin cần thiết nhất: số dư, giao dịch mới, tổng quan.
+Tối ưu thao tác: chỉ cần 1–2 bước để thêm giao dịch.
+Dễ tiếp cận và phản hồi:
+Các hành động (như thêm giao dịch, xóa, cập nhật) đều có cập nhật giao diện tức thì nhờ Provider và 
+notifyListeners(
+).
+Có cảnh báo ngân sách bằng thông báo push để người dùng dễ kiểm soát chi tiêu.
+Responsive:
+Giao diện được thiết kế bằng Column, Expanded, ListView giúp dễ dàng hiển thị tốt trên nhiều kích thước màn hình khác nhau.
+Màu sắc và biểu tượng:
+Màu sắc chính là xanh dương nhạt, dễ chịu và thân thiện.
+Sử dụng icon dễ hiểu: home, bar_chart, wallet, add.
+CHƯƠNG 4: 
+THỰC HIỆN VÀ TRIỂN KHAI
+Cài đặt môi trường phát triển
+Để phát triển ứng 
+dụng này 
+ta
+ cần chuẩn bị một môi trường đầy đủ, tương thích với hệ điều hành và các công cụ biên dịch, debug hiện đại như:
+Công cụ
+Phiên bản
+Mô tả
+Flutter SDK
+v3.19.x (stable)
+Khung phát triển UI 
+chính
+Dart SDK
+v3.x
+Ngôn ngữ lập trình tương thích với Flutter
+IDE
+VS Code / Android Studio
+Tùy chọn theo sở thích
+Thiết bị test
+Emulator / Android device
+Cần thiết cho việc kiểm thử ứng dụng
+Bảng 4.1. Công cụ sử dụng
+Các thư viện chính:
+provider: Quản
+ lý dữ liệu và cập nhập 
+UI
+.
+path_provider: Lưu trữ file JSON nội 
+bộ
+.
+flutter_local_notifications: Cảnh báo ngân sách vượt 
+quá
+.
+fluttertoast: Hiển thị thông 
+báo
+.
+dependencies:
+provider: ^6.0.5
+path_provider: ^2.1.1
+flutter_local_notifications: ^16.0.1
+fluttertoast: ^8.2.4
+Cấu trúc dự án chi tiết
+Hình 4.1. Cấu trúc dự án
+Triển khai các chức năng chính
+Màn hình chính (Home Screen)
+Màn hình chính hiển thị số dư, thu nhập, chi tiêu và danh sách giao dịch gần đây. 
+Thành phần gồm:
+BalanceCard: Tổng thu nhập, tổng chi tiêu, số dư.
+RecentTransactions: Danh sách các giao dịch mới nhất.
+BottomNavigationBar: Chuyển tab Thống kê, Ngân sách.
+FloatingActionButton: Mở AddExpenseScreen để thêm giao dịch.
+            
+Hình 4.2. Mình hình chính
+Thêm/Sửa/Xóa giao dịch
+Ứng dụng hỗ trợ người dùng quản lý thu chi một cách linh hoạt, cho phép tạo mới, chỉnh sửa, và xóa giao dịch nhanh chóng với giao diện thân thiện và logic xử lý chặt chẽ.
+Giao diện nhập liệu
+Người dùng thao tác trong màn hình AddExpenseScreen, có hai chế độ:
+Trạng thái
+Chức năng
+Thêm
+Tạo mới một giao dịch
+Sửa
+Cập nhật một giao dịch đã có (qua truyền expense vào màn hình)
+Bảng 4.2. Phân trạng thái
+Các thành phần giao diện chính gồm:
+Loại giao dịch: Chi tiêu hoặc Thu nhập (TransactionType)
+.
+Danh mục (Category): Hiển thị danh sách enum ExpenseCategory hoặc Inco
+meCategory
+.
+Danh mục tùy chỉnh: Cho phép nhập tên danh mục nếu chọn “Khác”
+.
+Số tiền: Nhập số tiền, kiểm tra định 
+dạng
+.
+Ngày giao dịch: Dùng show
+DatePicker
+.
+Nút Lưu: Có hiệu ứng loading khi đang xử 
+lý
+.
+Hình 4.3. Màn hình thêm/xóa giao dịch
+Logic thêm giao dịch
+Khi người dùng nhấn nút “Thêm”:
+Form được validate: kiểm tra danh mục, số tiền, tên danh mục (nếu “Khác”).
+Tạo đối tượng Expense với dữ liệu người dùng nhập.
+Gọi 
+provider.addExpense
+(expense):
+Giao dịch được thêm vào danh sách _expenses.
+Dữ liệu được lưu xuống file JSON (
+saveExpenses(
+)).
+Kiểm tra ngân sách nếu là chi tiêu:
+Gọi 
+checkBudgetStatus(
+)
+Nếu vượt 80% hoặc 100% ngân sách, hiển thị SnackBar cảnh báo
+      
+Hình 4.4 Thông báo vượt ngân sách
+Trả về màn hình chính và hiển thị thông báo thành công (SnackBar).
+      
+Hình 4.5. Thông báo thành công
+Logic sửa giao dịch
+Khi người dùng mở AddExpenseScreen với một expense:
+Tự động điền lại dữ liệu vào form.
+Cho phép thay đổi số tiền, ngày, loại, danh mục.
+Nhấn nút “Cập nhật”, gọi 
+updateExpense(
+id, expense) trong ExpenseProvider:
+Tìm và cập nhật bản ghi.
+Gọi 
+saveExpenses(
+) để lưu lại.
+       
+Hình 4.6. Màn hình sửa giao dịch
+Trạng thái loading và kiểm soát UX
+Biến _isSaving kiểm soát trạng thái đang lưu.
+Trong lúc xử lý, nút “Lưu” bị disable, hiển thị CircularProgressIndicator.
+Tất cả xử lý bất đồng bộ bằng async/await.
+Cảnh báo ngân sách nâng cao
+Ngoài kiểm tra tức thời khi lưu, còn có hàm _
+checkBudgetBeforeSaving(
+) (đã chuẩn bị):
+Cho phép hiển thị dialog xác nhận nếu chi tiêu mới vượt ngân sách.
+Có thể mở rộng tùy mục đích: xác nhận tiếp tục hoặc huỷ.
+Kiểm tra &amp; xác thực
+Trường
+Kiểm tra
+Số tiền
+&gt; 0, là số hợp lệ
+Tên danh mục
+Không được để trống nếu là “Khác”
+Ngày giao dịch
+Không được null
+Bảng 4.3. Kiểm tra và xác thực
+Thông báo sau khi xử lý
+Sau khi thêm hoặc cập nhật:
+Hiển thị SnackBar thành công với icon check_circle.
+Nếu có lỗi (exception), hiển thị SnackBar đỏ với icon error.
+Thống kê và báo cáo
+Chức năng thống kê và báo cáo giúp người dùng theo dõi hiệu quả chi tiêu, kiểm soát ngân sách và có cái nhìn tổng quan về tình hình tài chính cá nhân theo từng kỳ.
+Giao diện và điều hướng
+AppBar: Tiêu đề “Thống kê”, nền màu xanh dương, icon trắng.
+Tabs đầu trang: Chuyển đổi giữa 2 chế độ:
+ hàng tháng và hàng năm.
+Điều hướng thời 
+gian
+:
+Hàng tháng
+Hàng năm
+Điều hướng thời gian:
+Nút ← và → để di chuyển qua các tháng hoặc năm liền kề.
+Nút chọn ngày/tháng/năm bằng DatePicker hoặc YearPicker.
+Nút “Hôm nay” để nhanh chóng quay về thời điểm hiện tại.
+Hình 4.7 Màn hình thống kê
+Phân tích chi tiêu và thu nhập
+Toggle “Chi tiêu” / “Thu nhập”:
+Cho phép người dùng chuyển nhanh giữa 2 loại thống kê.
+Mỗi loại có hệ logic xử lý, biểu đồ và danh sách riêng.
+Biểu đồ tròn (Pie Chart)
+Sử dụng CustomPaint vẽ biểu đồ tròn dựa trên phần trăm phân bổ theo danh mục.
+Màu sắc được xác định qua CategoryHelper.
+2 Painter riêng biệt cho:
+CircleChartPainter (chi tiêu)
+CircleChartIncomesPainter (thu nhập)
+Có legend phía dưới biểu đồ: tên danh mục + phần trăm.
+Tổng số và so sánh kỳ trước
+Tổng chi tiêu/thu nhập: Hiển thị nổi bật ở giữa trang, kèm biểu tượng:
+Chi tiêu: Icons.trending_down (màu đỏ).
+Thu nhập: Icons.trending_up (màu xanh).
+So sánh kỳ trước:
+Tự động tính toán thay đổi so với tháng/năm trước.
+Hiển thị phần trăm tăng/giảm với màu tương ứng.
+Danh sách chi tiết theo danh mục
+Hiển thị các mục chi tiêu hoặc thu nhập đã phân loại, có thứ tự giảm dần theo số tiền.
+Mỗi mục có:
+Icon đại diện danh mục.
+Tên danh mục.
+Tỷ lệ phần trăm của tổng.
+Số tiền thực tế.
+Dấu &gt; cho thấy có thể mở rộng thêm trong tương lai.
+Tính toán xử lý
+Dữ liệu được lọc theo kỳ đã chọn (tháng/năm).
+Tổng hợp dữ liệu:
+_
+getTotalExpense(
+)
+_
+getTotalIncome(
+)
+So sánh kỳ trước:
+_
+getPreviousPeriodComparison(
+) – trả về phần trăm thay đổi, tổng kỳ trước và hiện tại.
+Tỷ lệ phần trăm danh mục được tính toán tự động và hiển thị dạng thập phân có định dạng (
+toStringAsFixed(
+)).
+Quản lý ngân sách
+Tính năng quản lý ngân sách giúp người dùng giới hạn chi tiêu theo từng danh mục và đưa ra cảnh báo khi vượt quá giới hạn đó. Giao diện thân thiện, dễ sử dụng, kết hợp hiệu ứng mượt mà và kiểm soát logic chính xác qua Provider.
+       
+Hình 4.8. Màn hình ngân sách
+Tổng quan giao diện
+AppBar: “Ngân sách”, màu nền trắng, có nút "+" để thêm ngân sách.
+Tổng quan ngân sách (Budget Overview):
+Tổng ngân sách đã đặt.
+Tổng chi tiêu hiện tại.
+Số dư ngân sách còn lại (có cảnh báo nếu âm
+).
+Hiển thị bằng Container có hiệu ứng gradient, icon rõ ràng, được đặt trong FadeTransition.
+Hiển thị ngân sách theo danh mục
+Danh sách các ExpenseCategory đã đặt ngân sách sẽ được hiển thị.
+Mỗi danh mục có:
+Icon + màu từ CategoryHelper.
+Số tiền đã chi &amp; tỷ lệ sử dụng ngân sách.
+Cảnh báo nếu vượt ngân sách (icon warning màu đỏ).
+Thanh tiến độ bằng LinearProgressIndicator.
+Người dùng có thể chạm vào từng card để sửa ngân sách hoặc nhấn nút "Xóa".
+Thêm ngân sách
+Người dùng có thể thêm ngân sách thông qua nút + hoặc giao diện trống khi chưa có ngân sách nào.
+Luồng xử lý:
+Gọi _
+showAddBudgetDialog(
+).
+Danh sách các danh mục chưa có ngân sách được hiển thị.
+Khi người dùng chọn danh mục, mở tiếp _
+showSetBudgetDialog(
+) để nhập số tiền.
+Dữ liệu được lưu vào ExpenseProvider.addBudget() và cập nhật giao diện.
+Giới hạn:
+Nếu tất cả danh mục đã có ngân sách, hiển thị dialog thông báo không thể thêm nữa.
+Sửa ngân sách
+Khi người dùng nhấn vào card của một danh mục, form nhập ngân sách được mở lại.
+Cho phép chỉnh sửa số tiền ngân sách hiện tại.
+Khi nhấn “Lưu”, dữ liệu được cập nhật lại trong ExpenseProvider.
+U
+pdateBud
+ 
+get(
+).
+Xóa ngân sách
+Giao diện card có nút “Xóa”.
+Gọi _
+showDeleteBudgetDialog(
+), xác nhận trước khi xóa.
+Sau khi người dùng xác nhận:
+Tìm đúng ngân sách theo category.
+Gọi 
+provider.deleteBudget
+() để xóa ngân sách.
+Hiệu ứng và UX
+Thành phần
+Mô tả
+FadeTransition
+Hiệu ứng mờ mượt khi load
+AnimatedContainer
+Từng card danh mục ngân sách hiển thị có độ trễ 
+animation
+RefreshIndicator
+Kéo để làm mới màn hình ngân sách
+LinearProgressIndicator
+Thanh tiến độ ngân sách, hiển thị màu theo trạng thái
+Bảng 4.4. Phân tích hiệu ứng UX
+Kiểm tra logic ngân sách
+Khi người dùng thêm giao dịch, nếu là chi tiêu (TransactionType.expense) thì hệ thống:
+Tự động kiểm tra ngân sách danh mục qua 
+checkBudgetStatus(
+).
+Nếu vượt 80% hoặc 100%, tự động gửi thông báo (NotificationService).
+Các logic này đã được xử lý trong expense_
+provider.dart
+.
+Quản lý trạng thái với Provider Pattern
+Để xử lý logic và luồng dữ liệu nhất quán trong toàn bộ ứng dụng, 
+em
+ áp dụng Provider Pattern
+ 
+một phương pháp quản lý trạng thái được Google khuyến nghị trong Flutter. Tất cả các nghiệp vụ về quản lý giao dịch, ngân sách, thông báo, lưu trữ và thống kê đều được gói gọn trong một lớp trung tâm: ExpenseProvider
+.
+Triển khai ExpenseProvider
+File providers/expense_provider.dart đóng vai trò là trung tâm quản lý dữ liệu. Nó kế thừa ChangeNotifier, cho phép cập nhật giao diện tự động khi dữ liệu thay đổi.
+Các vai trò chính:
+Quản lý danh sách giao dịch (_expenses)
+.
+Quản lý ngân sách từng danh mục (_budgets)
+.
+Lưu &amp; tải dữ liệu từ JSON file (LocalStorageService)
+.
+Gửi thông báo khi vượt ngân sách (NotificationService)
+.
+Tính toán tổng chi tiêu, thu nhập, số 
+dư
+.
+Cách khởi tạo:
+ChangeNotifierProvider(
+  create:(
+context)=
+&gt;
+ExpenseProvider()..loadFromLocalStorage(
+),
+  child: 
+MyApp(
+),
+);
+Provider được khởi tạo ngay tại 
+main.dart
+, đảm bảo tất cả widget con đều có thể truy cập ExpenseProvider.
+Kiến trúc quản lý trạng thái
+Ứng dụng tuân thủ mô hình trạng thái đơn giản nhưng hiệu quả:
+Model: Expense, Budget – chứa dữ liệu chi tiêu và ngân 
+sách
+.
+Provider: ExpenseProvider – xử lý toàn bộ 
+logic
+.
+Service: LocalStorageService – lưu trữ dữ liệu JSON nội 
+bộ
+.
+NotificationService: hỗ trợ cảnh báo ngân 
+sách
+.
+UI Layer: các screens/ và widgets/ như HomeScreen, BudgetScreen gọi hàm từ Expen
+seProvider
+.
+Cách hoạt động:
+Mọi thay đổi gọi 
+notifyListeners(
+).
+UI tự động render lại → đảm bảo dữ liệu luôn đồng nhất.
+Đồng bộ dữ liệu JSON
+Mọi dữ liệu trong ứng dụng đều được đồng bộ 2 chiều giữa Provider và file JSON trong bộ nhớ cục bộ.
+Quy trình đồng bộ:
+Khi mở app → 
+loadFromLocalStorage(
+) gọi đến service đọc 
+file
+.
+Khi thêm/sửa/xóa giao dịch → gọi 
+saveToLocalStorage(
+) để ghi lại file 
+JSON
+.
+Khi import/export dữ liệu → provider thao tác qua 
+exportData(
+) hoặc
+ 
+importData
+ 
+() (từ LocalStorageService)
+.
+Khi reset → gọi 
+clearAllData(
+) để xóa toàn bộ dữ liệu
+, tạo lại dữ liệu mẫu nếu cần.
+await 
+provider.addExpense
+(newExpense); // Giao dịch mới
+await 
+provider.saveToLocalStorage
+(
+);  /
+/ Ghi vào file JSON
+notifyListeners();   
+             // Thông báo cập nhật UI
+Hệ thống đồng bộ này giúp ứng dụng hoạt động offline hoàn toàn, đảm bảo dữ liệu không bị mất khi người dùng đóng app.
+Xử lý dữ liệu local
+Ứng dụng sử dụng JSON để lưu trữ và phục hồi dữ liệu chi tiêu cũng như ngân sách. Việc lưu trữ được thực hiện cục bộ thông qua LocalStorageService trong thư mục utils.
+Triển khai dịch vụ lưu trữ
+File utils/local_storage_service.dart triển khai các chức năng sau:
+loadExpenses()/
+saveExpenses(
+)
+ 
+→
+ 
+Đọc và ghi danh sách giao dịch từ/đến file 
+  
+expenses.json
+.
+loadBudgets()/
+saveBudgets(
+)
+ 
+→ Đọc và ghi danh sách ngân sách từ/đến
+ file 
+budgets.json
+.
+Tạo
+ 
+dữ liệu 
+mẫu
+ 
+n
+ếu file không tồn 
+tại
+:
+if 
+(!await
+ 
+file.exists
+(
+)) {
+  await _
+createSampleData();
+}
+Các file được lưu tại Document Directory của thiết bị:
+final directory = await 
+getApplicationDocumentsDirectory();
+Chiến lược dữ liệu
+Chiến lược lưu trữ bao gồm:
+Lưu mỗi lần có thay đổi (add/update/delete)
+.
+Dữ liệu dạng JSON thuần, dễ dàng đọc/xem/chuyển 
+đổi
+.
+Định dạng thời gian ISO8601 + TimeZoneOffset để đảm bảo tương thích giờ hệ 
+thống
+.
+{
+  "id": "1686072891",
+  "title": "Mua sắm hàng tháng",
+  "amount": 1500000,
+  "date": "2025-06-07T12:00:00Z",
+  "expenseCategory": 0,
+  "type": 1,
+  "createdAt": "2025-06-07T12:00:00Z"
+}
+Xác thực cấu trúc
+Ứng dụng không sử dụng schema validator bên ngoài mà tự xác minh định dạng dữ liệu
+ 
+trong Expense.fromJson() và Budget.fromJson().
+ 
+Mỗi model đều kiểm tra dữ liệu và sử dụng enum để ánh xạ chính xác trường category, type.
+ 
+expenseCategory: Expense
+ 
+Category.values[json['expenseCategory']]
+ 
+Ngoài ra, có cơ chế fallback an toàn nếu giá trị null hoặc lỗi.
+Nhập/xuất dữ liệu
+Ứng dụng hỗ trợ xuất và nhập dữ liệu theo định dạng JSON, dùng trong sao lưu và phục hồi dữ liệu.
+exportData(
+):
+Xuất toàn bộ danh sách expenses và budgets thành một file JSON chuỗi.
+importData(jsonString):
+Nhập file JSON (từ clipboard hoặc file), chuyển đổi lại thành object Expense và Budget, rồi ghi đè dữ liệu cũ.
+Tính năng này cực kỳ hữu ích trong:
+Sao lưu dữ liệu trước khi gỡ ứng 
+dụng
+.
+Chuyển dữ liệu giữa nhiều thiết 
+bị
+.
+Xuất báo cáo thô để xử lý bằng Excel hoặc Google 
+Sheets
+.
+Thiết kế giao diện responsive
+Để đảm bảo trải nghiệm người dùng nhất quán trên nhiều thiết bị, ứng dụng sử dụng các phương pháp responsive sau:
+Giao diện sử dụng Expanded, Flexible, và MediaQuery
+Hầu hết các màn hình chính (
+home.dart
+, 
+budget.dart
+, 
+statistics.dart
+) đều sử dụng Expanded, Flexible, SizedBox, Padding, thay vì kích thước cứng (width, height) cố định.
+Dùng MediaQuery.of(context
+).size
+ để điều chỉnh layout theo kích thước màn hình.
+final screenWidth = MediaQuery.of(context
+).size
+.
+width;
+Thiết kế layout theo chiều dọc
+UI chính được xây dựng theo hướng dọc, phù hợp với mobile (portrait).
+Với màn hình lớn (tablet), bố cục tự căn chỉnh mà không bị vỡ layout.
+Font và icon tương thích nhiều độ phân giải
+Sử dụng TextStyle với fontSize vừa phải, tránh sử dụng các đơn vị tuyệt đối.
+Icon được chọn từ bộ Material Icons, tự động co giãn theo DPI.
+Màu sắc, hiệu ứng, shadow nhẹ nhàng
+Dùng màu hệ thống Colors.blue[600], Colors.grey[50] phù hợp mọi ánh sáng.
+Các thành phần Card, Container có BoxShadow nhẹ để giữ giao diện hiện đại mà vẫn nhẹ tài nguyên.
+CHƯƠNG 5: KIỂM THỬ VÀ ĐÁNH GIÁ
+Chiến lược kiểm thử
+Mục tiêu của kiểm thử là xác minh rằng ứng dụng
+ đã
+ đáp ứng đầy đủ các yêu cầu chức năng và phi chức năng đã đặt ra. Kiểm thử được thực hiện để:
+Đảm bảo tất cả tính năng hoạt động chính xác.
+Giao diện người dùng hiển thị đúng trên nhiều thiết bị.
+Dữ liệu được lưu trữ và khôi phục an toàn, không xảy ra mất mát.
+Ứng dụng hoạt động ổn định và mượt mà cả trên thiết bị ảo và thiết bị thật.
+Cảnh báo ngân sách được gửi đúng thời điểm, hỗ trợ người dùng kiểm soát chi tiêu kịp thời.
+Công cụ và môi trường kiểm thử
+Thành phần
+Phiên bản
+Mục đích
+Android Studio
+Flamingo / Hedgehog
+IDE chính để chạy ứng dụng, gỡ lỗi và kiểm thử.
+Flutter Inspector
+Tích hợp sẵn
+Kiểm tra cây widget, rebuild, trạng thái Provider.
+Thiết bị thật
+Smartphone
+ 
+Android
+Kiểm tra hiệu suất, Notification, lưu file thực tế.
+Bảng 5.1 Môi trường kiểm thử
+Chiến lược kiểm thử
+Ứng dụng áp dụng chiến lược kiểm thử toàn diện theo 
+3
+ cấp độ: kiểm thử đơn vị (Unit Testing), kiểm thử giao diện người dùng (Widget Testing) và kiểm thử tích hợp (Integration Testing). Quy trình được thực hiện thủ công kết hợp với theo dõi Logcat, Flutter Inspector để quan sát các thay đổi
+.
+Kiểm thử đơn vị (Unit Testing)
+Kiểm tra tính đúng đắn của các lớp dữ liệu (Models) và các hàm xử lý logic quan trọng.
+Các hạng mục đã kiểm thử:
+Phương thức toJson() và fromJson() của lớp Expense đảm bảo tuần tự hóa (serialize) và giải tuần tự hóa (deserialize) chính xác.
+Phương thức copyWith() của lớp Budget kiểm tra khả năng sao chép dữ liệu với giá trị mới.
+Các phép tính tổng quan trọng như:
+getTotalIncome(
+) trả về tổng thu nhập.
+getTotalExpense(
+) trả về tổng chi tiêu.
+balance trả về số dư hiện tại (thu nhập trừ chi tiêu).
+Ví dụ minh họa:
+final json = 
+expense.toJson
+(
+);
+final expenseParsed = Expense.fromJson(json
+);
+assert(
+expenseParsed.amount == 
+expense.amount);
+Kết quả:
+ Các phép kiểm tra logic hoạt động chính xác, không phát sinh sai lệch dữ liệu.
+Kiểm thử tích hợp (Integration Testing
+)
+Xác minh rằng các thành phần giao diện hiển thị đúng, phản hồi nhanh và không xảy ra lỗi hiển thị trên các màn hình có độ phân giải khác nhau.
+Các widget đã kiểm thử thực tế:
+BalanceCard: Hiển thị tổng thu nhập, tổng chi tiêu, số dư.
+RecentTransactions: Danh sách các giao dịch mới nhất, cuộn mượt mà.
+BudgetCard: Thể hiện thông tin ngân sách của từng danh mục, cảnh báo khi vượt hạn mức.
+AddExpenseScreen: Biểu mẫu nhập liệu cho giao dịch mới, cho phép chọn loại giao dịch (thu nhập hoặc chi tiêu), chọn danh mục, nhập số tiền, chọn ngày giao dịch.
+Phương pháp kiểm tra:
+Khởi chạy giao diện trên thiết bị ảo với nhiều kích thước màn hình.
+Tương tác thủ công trên thiết bị thật để xác minh tốc độ phản hồi.
+Sử dụng Flutter Inspector để quan sát cây widget, phát hiện lỗi layout.
+Theo dõi Logcat để bắt log mọi sự kiện thay đổi trạng thái.
+Kết quả:
+ Giao diện ổn định, không vỡ bố cục, phản hồi nhanh và chính xác khi dữ liệu thay đổi.
+Kiểm thử giao diện người dùng (Widget 
+Testing
+)
+Đảm bảo các luồng chức năng chính chạy đúng từ đầu đến cuối.
+Kịch bản kiểm thử cụ thể:
+Bước kiểm thử
+Mô tả hành động
+Kết quả
+1
+Thêm giao dịch mới
+Giao dịch xuất hiện ở danh sách RecentTransac
+ 
+tions và file JSON được cập nhật
+2
+Chỉnh sửa giao dịch đã có
+Thông tin giao dịch được thay đổi chính xác, file JSON ghi dữ liệu cũ
+3
+Xóa giao dịch
+Giao dịch bị xóa khỏi danh sách, file JSON cập nhật lại
+4
+Thêm ngân sách cho danh mục
+BudgetCard hiển thị hạn mức mới và thanh tiến độ
+5
+Chi tiêu vượt ngân sách
+Hệ thống tự động gửi thông báo cảnh báo và hiển thị biểu tượng cảnh báo
+6
+Xuất dữ liệu
+Tạo thành file JSON chứa đầy đủ thông tin
+7
+Nhập dữ liệu
+Khôi phục danh sách giao dịch và ngân sách đúng như bản sao lưu
+Bảng 5.2 kịch bản kiểm thử
+Kết quả:
+ Toàn bộ quy trình hoạt động chính xác, dữ liệu khớp và không có lỗi phát sinh.
+Kiểm thử thực tế trên Android Studio và thiết bị thật
+Ứng dụng đã được chạy thử nghiệm trên:
+Thiết bị ảo: Kiểm tra khả năng co giãn giao diện, các thao tác thêm/xóa dữ liệu, xem thông báo cảnh báo.
+Thiết bị Android thật (Samsung Galaxy A52, Xiaomi Redmi Note): Kiểm tra tốc độ xử lý, lưu trữ file JSON, và nhận thông báo đẩy trong môi trường thực tế.
+Kết quả:
+ Ứng dụng hoạt động ổn định, cảnh báo ngân sách hiển thị chính xác, không xảy ra crash hay lỗi ngoài ý muốn.
+Phân tích kết quả kiểm thử
+Tiêu chí
+Kết quả đánh giá
+Độ chính xác dữ liệu
+100% đúng với số liệu thực tế
+Tính ổn định
+Hoạt động liên tục, không bị treo hoặc thoát đột ngột
+Giao diện người dùng
+Hiển thị rõ ràng, không bị lỗi layout
+Hiệu suất
+Mượt mà ngay cả khi lưu trữ nhiều dữ liệu
+Cảnh báo ngân sách
+Gửi đúng thời điểm, không trễ
+Khả năng phục hồi dữ liệu
+Xuất và nhập dữ liệu thành công, khôi phục đầy đủ
+Bảng 5.3 Tổng hợp kết quả kiểm thử
+Đánh giá tổng quan
+Ưu điểm:
+Giao diện đẹp, thân thiện, dễ sử dụng.
+Ứng dụng có thể hoạt động ngoại tuyến, không phụ thuộc Internet.
+Dữ liệu được lưu trữ an toàn dưới dạng tệp JSON.
+Hệ thống cảnh báo ngân sách hỗ trợ người dùng quản lý chi tiêu hiệu quả.
+Dễ dàng xuất dữ liệu để sao lưu hoặc phục hồi.
+Nhược điểm:
+Danh mục thu nhập và chi tiêu chưa cho phép người dùng tùy chỉnh linh hoạt.
+Chưa có tính năng đồng bộ dữ liệu đám mây.
+Chưa có kiểm thử tự động, phụ thuộc nhiều vào kiểm tra thủ công.
+KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+Tổng kết kết quả đạt được
+Sau quá trình nghiên cứu, thiết kế và triển khai, 
+em 
+đã hoàn thành các mục tiêu chính đặt ra cho ứng dụng Quản lý Chi tiêu Cá nhân sử dụng nền tảng Flutter. Cụ thể:
+Hoàn thiện một ứng dụng đầy đủ tính năng giúp người dùng quản lý các khoản thu nhập và chi tiêu hằng ngày.
+Hỗ trợ tính năng phân loại giao dịch rõ ràng thành hai nhóm: thu nhập và chi tiêu, với danh mục riêng cho từng loại.
+Cho phép người dùng thiết lập ngân sách cho từng danh mục chi tiêu cụ thể, giới hạn chi tiêu theo khoảng thời gian tự chọn.
+Tích hợp hệ thống cảnh báo vượt ngân sách: thông báo sẽ được gửi ngay lập tức khi mức chi tiêu chạm mốc cảnh báo (80%) hoặc vượt mức ngân sách đã đặt ra (100%). Cảnh báo hiển thị thông qua thông báo đẩy (push notification) và SnackBar trong giao diện ứng dụng.
+Ứng dụng sử dụng tệp JSON để lưu trữ toàn bộ dữ liệu cục bộ, hỗ trợ tính năng sao lưu (backup) và khôi phục dữ liệu (restore) một cách dễ dàng, đảm bảo tính bảo mật và hoạt động ổn định ngay cả khi không có kết nối Internet.
+Đánh giá ưu
+ và nhược điểm
+Ưu 
+điểm
+:
+Giao diện người dùng được thiết kế hiện đại, tối ưu cho trải nghiệm dễ sử dụng, phù hợp với mọi đối tượng người dùng, kể cả những người không hiểu về công nghệ.
+Ứng dụng hoàn toàn có khả năng hoạt động ngoại tuyến, dữ liệu được lưu trữ ngay trên thiết bị của người dùng mà không phụ thuộc vào hệ thống máy chủ hay kết nối Internet.
+Kiến trúc ứng dụng rõ ràng, tách biệt các thành phần logic, dịch vụ và giao diện, cho phép mở rộng hoặc tích hợp thêm tính năng mới mà không làm gián đoạn cấu trúc hiện tại.
+Nhược 
+điểm
+:
+Ứng dụng hiện chưa tích hợp hệ thống tài khoản người dùng hoặc cơ chế đồng bộ dữ liệu lên đám mây, do đó người dùng chỉ có thể lưu trữ dữ liệu trên một thiết bị.
+Chưa triển khai hệ thống kiểm thử tự động. Việc kiểm tra chất lượng phần mềm hiện vẫn dựa nhiều vào thao tác kiểm thử thủ công.
+Khó khăn và hạn chế
+Việc xử lý thời gian (timezone, chênh lệch múi giờ) giữa dữ liệu lưu trữ và dữ liệu hiển thị yêu cầu lập trình viên phải đặc biệt chú ý để đảm bảo tính chính xác và đồng nhất, tránh tình trạng sai lệch ngày giờ khi đồng bộ dữ liệu.
+Nền tảng Flutter chưa thực sự tối ưu khi xử lý các tệp dữ liệu lớn (JSON có dung lượng lớn hoặc chứa hàng chục nghìn bản ghi), vì vậy cần cân nhắc sử dụng cơ sở dữ liệu chuyên biệt nếu quy mô dữ liệu phát triển mạnh hơn.
+Việc thiết kế hệ thống quản lý ngân sách có thể trở nên phức tạp hơn nếu bổ sung các tính năng nâng cao như ngân sách lặp lại định kỳ theo tuần, tháng hoặc quy tắc tùy chỉnh.
+Hướng phát triển trong tương lai
+Em đã đề xuất các định hướng phát triển tiếp theo nhằm nâng cao hiệu quả sử dụng và đáp ứng tối ưu nhu cầu ngày càng đa dạng của người dùng:
+Tích hợp đồng bộ dữ liệu đám mây: Kết hợp các nền tảng lưu trữ đám mây như Firebase, Supabase hoặc phát triển máy chủ riêng để cho phép người dùng đồng bộ hóa dữ liệu giữa nhiều thiết bị khác nhau.
+Nâng cấp tính năng phân tích dữ liệu thông minh: Áp dụng các kỹ thuật Trí tuệ Nhân tạo (AI) hoặc Máy học (Machine Learning) để tự động gợi ý hạn mức chi tiêu phù hợp, dự đoán các khoản thu chi trong tương lai, từ đó hỗ trợ người dùng kiểm soát tài chính hiệu quả hơn.
+Mở rộng đa nền tảng: Triển khai ứng dụng cho các nền tảng khác ngoài thiết bị di động, bao gồm phiên bản Web và Desktop, khai thác tối đa sức mạnh của Flutter 3 để đồng bộ dữ liệu xuyên suốt trên tất cả các nền tảng.
+Đồng bộ dữ liệu theo thời gian thực: Phát triển tính năng tự động cập nhật dữ liệu ngay khi có thay đổi mà không cần khởi động lại ứng dụng, đảm bảo thông tin ngân sách và giao dịch luôn chính xác và nhất quán.
+KẾT 
+LUẬN
+Ứng dụng “Quản lý Chi tiêu Cá nhân” được phát triển trên nền tảng Flutter là một giải pháp công nghệ hiện đại, tiện ích và phù hợp với nhu cầu quản lý tài chính của người dùng trong cuộc sống hàng ngày. Với các tính năng cơ bản như ghi nhận chi tiêu, phân loại thu nhập và chi phí theo danh mục, thiết lập ngân sách giới hạn, đồng thời tự động đưa ra cảnh báo khi khoản chi tiêu vượt mức cho phép, ứng dụng đã góp phần hỗ trợ người dùng theo dõi tình hình tài chính một cách chi tiết, minh bạch và chủ động.
+Trong suốt quá trình thực hiện, ứng dụng đã chứng minh được khả năng vận hành ổn định, dễ sử dụng, giao diện trực quan, mượt mà và hoàn toàn có thể hoạt động ngoại tuyến mà không phụ thuộc vào kết nối Internet. Bên cạnh đó, việc lưu trữ dữ liệu dưới dạng tệp JSON cục bộ, kết hợp với các chức năng sao lưu và phục hồi, giúp người dùng yên tâm hơn về tính an toàn và bảo mật dữ liệu cá nhân.
+Mặc dù vẫn còn tồn tại một số điểm hạn chế như chưa tích hợp hệ thống đồng bộ hóa dữ liệu đám mây, chưa triển khai tài khoản người dùng và chưa áp dụng các phương pháp kiểm thử tự động một cách toàn diện, nhưng nhìn chung ứng dụng đã hoàn thành tốt các mục tiêu đã đặt ra từ đầu đề tài. Đây chính là tiền đề vững chắc để tiếp tục nghiên cứu, phát triển và hoàn thiện hơn nữa trong các phiên bản tiếp theo.
+Trong thời gian tới, em đã đề xuất những hướng mở rộng khả thi như tích hợp tính năng đồng bộ thời gian thực với cơ sở dữ liệu đám mây, bổ sung các thuật toán trí tuệ nhân tạo để phân tích, dự đoán và đưa ra khuyến nghị chi tiêu phù hợp, đồng thời mở rộng khả năng đa nền tảng (Web, Desktop) nhằm đáp ứng tối đa nhu cầu của người dùng trong kỷ nguyên số.
+Với những kết quả đạt được cùng với định hướng phát triển rõ ràng, em tin tưởng rằng ứng dụng “Quản lý Chi tiêu Cá nhân” sẽ ngày càng hoàn thiện hơn, trở thành công cụ đắc lực giúp người dùng quản lý tài chính một cách thông minh, hiệu quả và an toàn hơn trong tương lai.
+TÀI 
+LIỆU THAM KHẢO
+Google. 
+Flutter Documentation
+.
+ 
+Truy cập tại: https://flutter.dev/docs
+Google. 
+Dart Programming Language Guides
+. Truy cập tại: https://dart.dev/guides
+pub.dev. 
+Flutter Packages Repository
+. Truy cập tại: 
+https://pub.dev/
+(Các package sử dụng: provider, path_provider, flutter_local_notifications, fluttertoast.)
+Reso Coder. 
+Flutter State Management with Provider
+ [Online article]. Truy cập tại: https://resocoder.com/2020/03/09/flutter-state-management-tutorial-provider/
+FilledStacks. 
+Flutter Local Notifications Tutorial
+ [Online article]. Truy cập tại: https://www.filledstacks.com/post/flutter-local-notifications/
+Android Developers. 
+Notifications Overview
+. Truy cập tại: 
+https://developer.android.com/guide/topics/ui/notifiers/notifications
+Apple Developer. 
+Human Interface Guidelines – Notifications
+. Truy cập tại: 
+https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/notifications/
+https://www.youtube.com/watch?v=3jGj-1-m_zA&amp;list=LL&amp;index=1&amp;t=6546s
