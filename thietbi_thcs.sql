@@ -935,3 +935,14 @@ ALTER TABLE ONLY public.phieu_tuan
 
 \unrestrict dYR0GExJOzXZmWtwLXbNafqFCfRjuC7oc6qywSg6OpAbPyS2mdE6TBr22QdOjhz
 
+
+
+ALTER TABLE public.phan_phoi_chuong_trinh ADD COLUMN IF NOT EXISTS tuan character varying(50);
+
+CREATE TABLE IF NOT EXISTS public.tien_do_giang_day (
+  id SERIAL PRIMARY KEY,
+  malop character varying(50),
+  mamon character varying(50),
+  tiet_ppct_hien_tai integer,
+  ngay_cap_nhat timestamp without time zone DEFAULT CURRENT_TIMESTAMP
+);
