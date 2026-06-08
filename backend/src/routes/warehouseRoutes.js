@@ -25,7 +25,7 @@ router.get("/damage-history/:maLoaiTB", getDamageHistory);
 router.put("/equipment/:id/condition", adjustEquipmentCondition);
 
 // QR
-router.get("/qr/:type/:code", generateQR);
+// (GET /qr/:type/:code đã được chuyển ra server.js làm Public API)
 router.post("/scan", scanQRAction);
 
 module.exports = router;

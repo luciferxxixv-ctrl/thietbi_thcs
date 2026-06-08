@@ -59,6 +59,7 @@ const { verifyToken } = require('./src/middlewares/authMiddleware');
 // --- [MỚI] Sử dụng Routes ---
 // Public API
 app.use("/api/auth", authRoutes);
+app.get("/api/warehouse/qr/:type/:code", require("./src/controllers/warehouseController").generateQR);
 
 // Protected APIs (Bắt buộc phải có Token)
 app.use("/api", verifyToken); 
