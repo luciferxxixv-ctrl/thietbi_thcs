@@ -944,5 +944,6 @@ CREATE TABLE IF NOT EXISTS public.tien_do_giang_day (
   malop character varying(50),
   mamon character varying(50),
   tiet_ppct_hien_tai integer,
-  ngay_cap_nhat timestamp without time zone DEFAULT CURRENT_TIMESTAMP
+  ngay_cap_nhat timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT uq_tien_do_lop_mon UNIQUE (malop, mamon)
 );
