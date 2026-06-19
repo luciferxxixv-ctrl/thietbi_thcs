@@ -1,12 +1,36 @@
 const { pool } = require("../config/db");
-const path = require("path");
-const fs = require("fs");
 
-// [Đảm bảo thư mục uploads tồn tại]
-const UPLOADS_DIR = path.join(__dirname, "../../uploads");
-if (!fs.existsSync(UPLOADS_DIR)) {
-  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
-}
+const IMGBB_API_KEY = process.env.IMGBB_API_KEY;
+
+// Đẩy ảnh (buffer trong RAM) lên imgbb và trả về URL ảnh đã host.
+// Trả về null nếu không có file hoặc upload thất bại (thiết bị vẫn được tạo, chỉ thiếu ảnh).
+const uploadToImgbb = async (file) => {
+  if (!file || !file.buffer) return null;
+  if (!IMGBB_API_KEY) {
+    console.warn("Chưa cấu hình IMGBB_API_KEY → bỏ qua việc upload ảnh.");
+    return null;
+  }
+
+  try {
+    const form = new FormData();
+    form.append("image", file.buffer.toString("base64"));
+
+    const resp = await fetch(
+      `https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`,
+      { method: "POST", body: form },
+    );
+    const json = await resp.json();
+
+    if (json && json.success && json.data) {
+      return json.data.display_url || json.data.url;
+    }
+    console.error("imgbb trả về lỗi:", json);
+    return null;
+  } catch (err) {
+    console.error("Lỗi upload ảnh lên imgbb:", err.message);
+    return null;
+  }
+};
 
 // Hàm lấy tất cả thiết bị
 const getAllEquipment = async (req, res) => {
@@ -25,7 +49,7 @@ const getAllEquipment = async (req, res) => {
 const addEquipment = async (req, res) => {
   try {
     const { tenloai, donvitinh, tongtonkho } = req.body;
-    const hinhanh = req.file ? req.file.filename : null;
+    const hinhanh = await uploadToImgbb(req.file);
 
     // Sinh mã thiết bị tự động (VD: TB001)
     const countQuery = "SELECT COUNT(*) FROM loai_thiet_bi";
@@ -79,9 +103,12 @@ const updateEquipment = async (req, res) => {
     let params = [tenloai, donvitinh, tongtonkho, id];
 
     if (req.file) {
-      query =
-        "UPDATE loai_thiet_bi SET tenloai=$1, donvitinh=$2, tongtonkho=$3, hinhanh=$4 WHERE maloaitb=$5 RETURNING *";
-      params = [tenloai, donvitinh, tongtonkho, req.file.filename, id];
+      const hinhanh = await uploadToImgbb(req.file);
+      if (hinhanh) {
+        query =
+          "UPDATE loai_thiet_bi SET tenloai=$1, donvitinh=$2, tongtonkho=$3, hinhanh=$4 WHERE maloaitb=$5 RETURNING *";
+        params = [tenloai, donvitinh, tongtonkho, hinhanh, id];
+      }
     }
 
     const result = await pool.query(query, params);

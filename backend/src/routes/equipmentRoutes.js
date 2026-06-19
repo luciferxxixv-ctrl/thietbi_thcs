@@ -1,24 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const path = require("path");
 const {
   getAllEquipment,
   addEquipment,
   updateEquipment,
 } = require("../controllers/equipmentController");
 
-// Cấu hình Multer để upload file
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
-  },
+// Lưu ảnh vào bộ nhớ (RAM) rồi đẩy lên imgbb thay vì lưu xuống ổ đĩa.
+// Lý do: server (Render) dùng filesystem tạm thời, ảnh lưu đĩa sẽ mất sau mỗi
+// lần deploy. Lưu trên imgbb giúp ảnh tồn tại vĩnh viễn.
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 32 * 1024 * 1024 }, // imgbb cho tối đa 32MB
 });
-const upload = multer({ storage: storage });
 
 // Routes
 router.get("/", getAllEquipment);

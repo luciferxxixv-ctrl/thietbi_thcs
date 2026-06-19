@@ -271,7 +271,11 @@ export default function ReturnDetailModal({
                                 <div className="d-flex align-items-center">
                                   {it.hinhanh && (
                                     <img
-                                      src={`${API_BASE}/uploads/${it.hinhanh}`}
+                                      src={
+                                        it.hinhanh.startsWith("http")
+                                          ? it.hinhanh
+                                          : `${API_BASE}/uploads/${it.hinhanh}`
+                                      }
                                       alt=""
                                       style={{
                                         width: 36,

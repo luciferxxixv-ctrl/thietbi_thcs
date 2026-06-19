@@ -310,7 +310,11 @@ export default function WarehousePanel({
                               <td>
                                 {tb.hinhanh ? (
                                   <img
-                                    src={`${API_BASE}/uploads/${tb.hinhanh}`}
+                                    src={
+                                      tb.hinhanh.startsWith("http")
+                                        ? tb.hinhanh
+                                        : `${API_BASE}/uploads/${tb.hinhanh}`
+                                    }
                                     alt={tb.tenloai}
                                     style={{
                                       width: "50px",

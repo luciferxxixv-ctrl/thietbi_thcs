@@ -15,7 +15,11 @@ export default function EquipmentShop({ dsThietBi, onSelectItem }) {
           <div className="card h-100 shadow-sm border-0">
             {tb.hinhanh ? (
               <img
-                src={`${API_BASE}/uploads/${tb.hinhanh}`}
+                src={
+                  tb.hinhanh.startsWith("http")
+                    ? tb.hinhanh
+                    : `${API_BASE}/uploads/${tb.hinhanh}`
+                }
                 className="card-img-top"
                 alt={tb.tenloai}
                 style={{ height: "150px", objectFit: "cover" }}
