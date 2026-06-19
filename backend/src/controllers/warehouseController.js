@@ -75,6 +75,15 @@ const checkConflict = async (req, res) => {
         const available = usableStock - used;
 
         if (item.soluong > available) {
+          // Phân loại lý do để thông báo cho đúng (tránh đổ lỗi nhầm "GV khác giữ"):
+          //  - het_kho:    không có cái nào dùng tốt (soluongtot = 0)
+          //  - da_giu_cho: có hàng nhưng đã bị GV khác giữ chỗ ở tiết này
+          //  - khong_du:   yêu cầu nhiều hơn số đang có (dù chưa ai giữ)
+          let lyDo;
+          if (usableStock <= 0) lyDo = "het_kho";
+          else if (used > 0) lyDo = "da_giu_cho";
+          else lyDo = "khong_du";
+
           conflicts.push({
             matkb: plan.matkb,
             ngayhoc,
@@ -88,6 +97,7 @@ const checkConflict = async (req, res) => {
             tongtonkho: parseInt(tongtonkho, 10) || 0,
             soluongtot: usableStock,
             nguoidagiu: usedRes.rows[0].nguoidagiu || "",
+            lyDo,
           });
         }
       }

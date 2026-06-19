@@ -12,7 +12,10 @@ export default function EquipmentShop({ dsThietBi, onSelectItem }) {
     <div className="row g-3">
       {dsThietBi.map((tb) => {
         const dangMuon = Number(tb.dangmuon) || 0;
-        const conLai = Math.max(0, Number(tb.tongtonkho || 0) - dangMuon);
+        // "Còn lại" dựa trên số lượng DÙNG TỐT (soluongtot) trừ đi số đang cho mượn,
+        // để khớp đúng với logic cho mượn (không hiển thị mượn được khi thực tế không mượn được).
+        const dungTot = Number(tb.soluongtot ?? tb.tongtonkho ?? 0);
+        const conLai = Math.max(0, dungTot - dangMuon);
         return (
         <div key={tb.maloaitb} className="col-6 col-md-4 col-lg-3">
           <div className="card h-100 shadow-sm border-0">

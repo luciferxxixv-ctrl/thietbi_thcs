@@ -37,7 +37,7 @@ const getAllEquipment = async (req, res) => {
   try {
     const query = `
       SELECT
-        ltb.maloaitb, ltb.tenloai, ltb.donvitinh, ltb.tongtonkho, ltb.hinhanh,
+        ltb.maloaitb, ltb.tenloai, ltb.donvitinh, ltb.tongtonkho, ltb.soluongtot, ltb.hinhanh,
         COALESCE((
           SELECT SUM(ct.SoLuongDK)
           FROM CHI_TIET_PHIEU ct
@@ -82,15 +82,19 @@ const addEquipment = async (req, res) => {
       }
     }
 
+    // Khởi tạo soluongtot = tongtonkho: khi mới nhập, toàn bộ thiết bị đều dùng tốt.
+    // (Trước đây không set soluongtot → mặc định 0 → thiết bị mới KHÔNG mượn được.)
+    const soLuong = parseInt(tongtonkho, 10) || 0;
     const insertQuery = `
-            INSERT INTO loai_thiet_bi (maloaitb, tenloai, donvitinh, tongtonkho, hinhanh)
-            VALUES ($1, $2, $3, $4, $5) RETURNING *
+            INSERT INTO loai_thiet_bi (maloaitb, tenloai, donvitinh, tongtonkho, soluongtot, hinhanh)
+            VALUES ($1, $2, $3, $4, $5, $6) RETURNING *
         `;
     const result = await pool.query(insertQuery, [
       madong,
       tenloai,
       donvitinh,
-      tongtonkho,
+      soLuong,
+      soLuong,
       hinhanh,
     ]);
 
@@ -108,15 +112,24 @@ const updateEquipment = async (req, res) => {
     const { id } = req.params;
     const { tenloai, donvitinh, tongtonkho } = req.body;
 
-    let query =
-      "UPDATE loai_thiet_bi SET tenloai=$1, donvitinh=$2, tongtonkho=$3 WHERE maloaitb=$4 RETURNING *";
+    // Tính lại soluongtot (dùng tốt) = tongtonkho - hong - mat để giữ nhất quán.
+    // Tránh tình trạng tongtonkho > 0 nhưng soluongtot = 0 khiến không mượn được.
+    let query = `
+      UPDATE loai_thiet_bi
+      SET tenloai=$1, donvitinh=$2, tongtonkho=$3,
+          soluongtot = GREATEST($3::int - COALESCE(soluonghong,0) - COALESCE(soluongmat,0), 0)
+      WHERE maloaitb=$4 RETURNING *`;
     let params = [tenloai, donvitinh, tongtonkho, id];
 
     if (req.file) {
       const hinhanh = await uploadToImgbb(req.file);
       if (hinhanh) {
-        query =
-          "UPDATE loai_thiet_bi SET tenloai=$1, donvitinh=$2, tongtonkho=$3, hinhanh=$4 WHERE maloaitb=$5 RETURNING *";
+        query = `
+          UPDATE loai_thiet_bi
+          SET tenloai=$1, donvitinh=$2, tongtonkho=$3,
+              soluongtot = GREATEST($3::int - COALESCE(soluonghong,0) - COALESCE(soluongmat,0), 0),
+              hinhanh=$4
+          WHERE maloaitb=$5 RETURNING *`;
         params = [tenloai, donvitinh, tongtonkho, hinhanh, id];
       }
     }

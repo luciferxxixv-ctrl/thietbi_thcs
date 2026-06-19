@@ -114,12 +114,12 @@ export default function ConflictInspector({
         <i className="bi bi-exclamation-octagon fs-3 me-3"></i>
         <div className="flex-grow-1">
           <h6 className="fw-bold mb-2">
-            Phát hiện {conflicts.length} xung đột thiết bị / tiết
+            Phát hiện {conflicts.length} vấn đề thiết bị / tiết
           </h6>
           <small className="d-block mb-2 text-dark">
-            Có giáo viên khác đã đặt mượn các thiết bị này vào cùng tiết. Bạn
-            cần giảm số lượng, chọn thiết bị thay thế, hoặc đổi ngày dạy trước
-            khi gửi duyệt.
+            {conflicts.some((c) => c.lyDo === "het_kho")
+              ? "Một số thiết bị hiện không còn cái nào dùng tốt trong kho (tồn dùng tốt = 0). Vui lòng liên hệ Admin bổ sung số lượng, hoặc chọn thiết bị khác."
+              : "Một số thiết bị đã bị giáo viên khác giữ chỗ ở cùng tiết. Bạn cần giảm số lượng, chọn thiết bị thay thế, hoặc đổi ngày dạy trước khi gửi duyệt."}
           </small>
           <div className="table-responsive">
             <table className="table table-sm table-bordered bg-white mb-0">
@@ -131,12 +131,21 @@ export default function ConflictInspector({
                   <th>Thiết bị</th>
                   <th className="text-center">Yêu cầu</th>
                   <th className="text-center">Còn lại</th>
-                  <th>Đã giữ bởi</th>
+                  <th>Lý do</th>
                 </tr>
               </thead>
               <tbody>
                 {conflicts.map((c, idx) => {
                   const ngay = new Date(c.ngayhoc).toLocaleDateString("vi-VN");
+                  let lyDoText;
+                  if (c.lyDo === "het_kho")
+                    lyDoText = "Kho hết hàng dùng tốt (tồn 0)";
+                  else if (c.lyDo === "khong_du")
+                    lyDoText = "Yêu cầu vượt số lượng có trong kho";
+                  else
+                    lyDoText = c.nguoidagiu
+                      ? `Đã giữ bởi: ${c.nguoidagiu}`
+                      : "Đã có người giữ chỗ";
                   return (
                     <tr key={idx}>
                       <td>{ngay}</td>
@@ -158,8 +167,10 @@ export default function ConflictInspector({
                           {c.conlai}/{c.soluongtot}
                         </span>
                       </td>
-                      <td className="small text-muted">
-                        {c.nguoidagiu || "—"}
+                      <td
+                        className={`small ${c.lyDo === "het_kho" ? "text-danger fw-semibold" : "text-muted"}`}
+                      >
+                        {lyDoText}
                       </td>
                     </tr>
                   );
