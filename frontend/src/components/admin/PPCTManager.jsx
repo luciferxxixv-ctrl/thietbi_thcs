@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import * as XLSX from "xlsx";
 import { API_BASE } from "../shared/constants";
 
 const PPCTManager = ({ subject, onBack }) => {
@@ -16,6 +17,7 @@ const PPCTManager = ({ subject, onBack }) => {
   const [selectedPpct, setSelectedPpct] = useState(null);
   const [allEquipments, setAllEquipments] = useState([]);
   const [lessonEquipments, setLessonEquipments] = useState([]); // [{ maloaitb, soluong }]
+  const [exporting, setExporting] = useState(false);
 
   useEffect(() => {
     fetchPpct();
@@ -130,6 +132,58 @@ const PPCTManager = ({ subject, onBack }) => {
     }
   };
 
+  const handleExportExcel = async () => {
+    if (ppctList.length === 0) return toast.warning("Chưa có bài học để xuất!");
+    setExporting(true);
+    try {
+      // Lấy thiết bị gợi ý cho từng bài học (song song)
+      const eqResults = await Promise.all(
+        ppctList.map((p) =>
+          axios
+            .get(`${API_BASE}/api/ppct/${p.mappct}/equipment`)
+            .then((r) => r.data)
+            .catch(() => []),
+        ),
+      );
+
+      const data = ppctList.map((p, i) => {
+        const eqStr = (eqResults[i] || [])
+          .map((eq) => `${eq.maloaitb}:${eq.soluongdexuat}`)
+          .join(", ");
+        return {
+          "Mã PPCT": p.mappct,
+          "Mã Môn": p.mamon || subject.mamon,
+          "Tuần": p.tuan || "",
+          "Tiết": p.tietthu || "",
+          "Tên Bài Học": p.tenbaihoc || "",
+          "Loại Phòng": p.loaiphongyeucau || "",
+          "Mã Thiết Bị": eqStr,
+        };
+      });
+
+      const ws = XLSX.utils.json_to_sheet(data);
+      ws["!cols"] = [
+        { wch: 10 },
+        { wch: 10 },
+        { wch: 10 },
+        { wch: 8 },
+        { wch: 50 },
+        { wch: 28 },
+        { wch: 30 },
+      ];
+      const wb = XLSX.utils.book_new();
+      const safeName = String(subject.mamon).replace(/[^a-zA-Z0-9]/g, "_");
+      XLSX.utils.book_append_sheet(wb, ws, `PPCT_${safeName}`.substring(0, 31));
+      const today = new Date().toISOString().split("T")[0];
+      XLSX.writeFile(wb, `KeHoach_${safeName}_${today}.xlsx`);
+      toast.success(`Đã xuất ${ppctList.length} bài học ra Excel!`);
+    } catch (err) {
+      toast.error("Lỗi khi xuất Excel");
+    } finally {
+      setExporting(false);
+    }
+  };
+
   return (
     <div className="card shadow-sm border-0 animate-fade-in">
       <div className="card-header bg-white border-0 py-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
@@ -141,9 +195,18 @@ const PPCTManager = ({ subject, onBack }) => {
             Kế Hoạch Môn: <span className="text-primary">{subject.tenmon}</span> <span className="text-muted fs-6">({subject.mamon})</span>
           </h5>
         </div>
-        <button className="btn btn-primary shadow-sm" onClick={openAdd}>
-          <i className="bi bi-plus-lg me-2"></i>Thêm Bài Học Mới
-        </button>
+        <div className="d-flex gap-2">
+          <button className="btn btn-outline-success shadow-sm" onClick={handleExportExcel} disabled={exporting}>
+            {exporting ? (
+              <><span className="spinner-border spinner-border-sm me-2"></span>Đang xuất...</>
+            ) : (
+              <><i className="bi bi-file-earmark-excel me-2"></i>Xuất Excel</>
+            )}
+          </button>
+          <button className="btn btn-primary shadow-sm" onClick={openAdd}>
+            <i className="bi bi-plus-lg me-2"></i>Thêm Bài Học Mới
+          </button>
+        </div>
       </div>
       <div className="card-body p-0">
         <div className="table-responsive">

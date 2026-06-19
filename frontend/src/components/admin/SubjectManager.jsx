@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import * as XLSX from "xlsx";
 import { API_BASE } from "../shared/constants";
 import PPCTManager from "./PPCTManager";
 
@@ -60,6 +61,21 @@ const SubjectManager = () => {
     }
   };
 
+  const handleExportExcel = () => {
+    if (subjects.length === 0) return toast.warning("Chưa có môn học để xuất!");
+    const data = subjects.map((s) => ({
+      "Mã Môn": s.mamon,
+      "Tên Môn": s.tenmon,
+    }));
+    const ws = XLSX.utils.json_to_sheet(data);
+    ws["!cols"] = [{ wch: 14 }, { wch: 40 }];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Mon Hoc");
+    const today = new Date().toISOString().split("T")[0];
+    XLSX.writeFile(wb, `DanhSach_MonHoc_${today}.xlsx`);
+    toast.success(`Đã xuất ${subjects.length} môn học ra Excel!`);
+  };
+
   const openAdd = () => {
     setEditingId(null);
     setFormData({ mamon: "", tenmon: "" });
@@ -80,9 +96,14 @@ const SubjectManager = () => {
     <div className="card shadow-sm border-0 animate-fade-in">
       <div className="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
         <h5 className="mb-0 fw-bold">Quản lý Môn học</h5>
-        <button className="btn btn-primary shadow-sm" onClick={openAdd}>
-          <i className="bi bi-plus-lg me-2"></i>Thêm Môn Học Mới
-        </button>
+        <div className="d-flex gap-2">
+          <button className="btn btn-outline-success shadow-sm" onClick={handleExportExcel}>
+            <i className="bi bi-file-earmark-excel me-2"></i>Xuất Excel
+          </button>
+          <button className="btn btn-primary shadow-sm" onClick={openAdd}>
+            <i className="bi bi-plus-lg me-2"></i>Thêm Môn Học Mới
+          </button>
+        </div>
       </div>
       <div className="card-body p-0">
         <div className="table-responsive">
