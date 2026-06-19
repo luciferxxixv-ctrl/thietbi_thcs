@@ -35,8 +35,18 @@ const uploadToImgbb = async (file) => {
 // Hàm lấy tất cả thiết bị
 const getAllEquipment = async (req, res) => {
   try {
-    const query =
-      "SELECT maloaitb, tenloai, donvitinh, tongtonkho, hinhanh FROM loai_thiet_bi ORDER BY maloaitb";
+    const query = `
+      SELECT
+        ltb.maloaitb, ltb.tenloai, ltb.donvitinh, ltb.tongtonkho, ltb.hinhanh,
+        COALESCE((
+          SELECT SUM(ct.SoLuongDK)
+          FROM CHI_TIET_PHIEU ct
+          JOIN PHIEU_MUON pm ON ct.MaPhieu = pm.MaPhieu
+          WHERE ct.MaLoaiTB = ltb.maloaitb AND pm.TrangThai = 'DangMuon'
+        ), 0) AS dangmuon
+      FROM loai_thiet_bi ltb
+      ORDER BY ltb.maloaitb
+    `;
     const result = await pool.query(query);
     res.json(result.rows);
   } catch (err) {

@@ -346,7 +346,7 @@ export default function WarehousePanel({
                               </td>
                               <td>
                                 <span className="badge bg-success fs-6">
-                                  {tb.tongtonkho} {tb.donvitinh}
+                                  {tb.tongtonkho} {tb.donvitinh || "Cái"}
                                 </span>
                               </td>
                               <td>

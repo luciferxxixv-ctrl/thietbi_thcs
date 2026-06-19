@@ -36,15 +36,21 @@ export default function EquipmentShop({ dsThietBi, onSelectItem }) {
               <h6 className="card-title fw-bold text-dark mb-1">
                 {tb.tenloai}
               </h6>
-              <small className="text-muted d-block mb-3">
+              <small className="text-muted d-block mb-1">
                 Tồn kho:{" "}
                 <strong
                   className={tb.tongtonkho > 0 ? "text-success" : "text-danger"}
                 >
                   {tb.tongtonkho}
                 </strong>{" "}
-                {tb.donvitinh}
+                {tb.donvitinh || "Cái"}
               </small>
+              {Number(tb.dangmuon) > 0 && (
+                <small className="d-block mb-3 text-info">
+                  <i className="bi bi-arrow-up-right-circle"></i> Đang cho mượn:{" "}
+                  <strong>{tb.dangmuon}</strong>
+                </small>
+              )}
               <div className="mt-auto">
                 <button
                   className="btn btn-outline-primary btn-sm w-100 fw-bold"
