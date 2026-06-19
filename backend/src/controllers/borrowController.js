@@ -331,7 +331,7 @@ const getWarehouseTasks = async (req, res) => {
             JOIN LOP_HOC lh ON tkb.MaLop = lh.MaLop
             JOIN MON_HOC mh ON tkb.MaMon = mh.MaMon
             WHERE pm.TrangThai IN ('DaDuyet', 'DangMuon')
-            ORDER BY tkb.NgayHoc ASC, tkb.TietHoc ASC
+            ORDER BY pm.NgayTao DESC, tkb.NgayHoc DESC, tkb.TietHoc DESC
         `;
     const result = await pool.query(query);
     res.status(200).json(result.rows);
