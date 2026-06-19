@@ -2,6 +2,16 @@ const { pool } = require("../config/db");
 const { getActiveSchoolYear, computeWeekInfo } = require("../utils/weekHelper");
 const { emitToAdmins, emitToUser } = require("../utils/socket"); // [MỚI] Import Socket
 
+// Chuyển mã trạng thái phiếu sang nhãn tiếng Việt để hiển thị/thông báo.
+const TRANG_THAI_LABEL = {
+  ChoDuyet: "Chờ duyệt",
+  DaDuyet: "Đã duyệt",
+  TuChoi: "Từ chối",
+  DangMuon: "Đã giao đồ (đang mượn)",
+  DaTra: "Đã trả",
+};
+const nhanTrangThai = (trangThai) => TRANG_THAI_LABEL[trangThai] || trangThai;
+
 // 1. Tạo Phiếu Mượn (Giáo viên dùng)
 const createLoanRequest = async (req, res) => {
   const client = await pool.connect();
@@ -149,7 +159,7 @@ const updateStatus = async (req, res) => {
       emitToUser(nguoiMuon, "borrow_status_changed", { 
         maPhieu, 
         trangThai,
-        msg: `Phiếu mượn ${maPhieu} đã chuyển sang trạng thái: ${trangThai === 'DaDuyet' ? 'Đã duyệt' : 'Từ chối'}`
+        msg: `Phiếu mượn ${maPhieu} đã chuyển sang trạng thái: ${nhanTrangThai(trangThai)}`
       });
     }
 
@@ -186,7 +196,7 @@ const bulkUpdateStatus = async (req, res) => {
       emitToUser(row.nguoimuon, "borrow_status_changed", { 
         maPhieu: row.maphieu, 
         trangThai,
-        msg: `Phiếu mượn ${row.maphieu} đã chuyển sang trạng thái: ${trangThai === 'DaDuyet' ? 'Đã duyệt' : 'Từ chối'}`
+        msg: `Phiếu mượn ${row.maphieu} đã chuyển sang trạng thái: ${nhanTrangThai(trangThai)}`
       });
     });
 

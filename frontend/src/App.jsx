@@ -73,10 +73,10 @@ function App() {
     const socket = initiateSocketConnection(storedUser.maGV, storedUser.role || 'teacher');
     
     const handleStatusChanged = (data) => {
-      if (data.trangThai === 'DaDuyet') {
-        toast.success(`🎉 ${data.msg}`);
-      } else {
+      if (data.trangThai === 'TuChoi') {
         toast.error(`❌ ${data.msg}`);
+      } else {
+        toast.success(`🎉 ${data.msg}`);
       }
       // Refresh dữ liệu
       if (activeTab === 'home') fetchHomeData(storedUser.maGV, weekOffset);
