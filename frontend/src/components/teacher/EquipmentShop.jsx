@@ -10,7 +10,10 @@ import { API_BASE } from "../shared/constants";
 export default function EquipmentShop({ dsThietBi, onSelectItem }) {
   return (
     <div className="row g-3">
-      {dsThietBi.map((tb) => (
+      {dsThietBi.map((tb) => {
+        const dangMuon = Number(tb.dangmuon) || 0;
+        const conLai = Math.max(0, Number(tb.tongtonkho || 0) - dangMuon);
+        return (
         <div key={tb.maloaitb} className="col-6 col-md-4 col-lg-3">
           <div className="card h-100 shadow-sm border-0">
             {tb.hinhanh ? (
@@ -37,24 +40,23 @@ export default function EquipmentShop({ dsThietBi, onSelectItem }) {
                 {tb.tenloai}
               </h6>
               <small className="text-muted d-block mb-1">
-                Tồn kho:{" "}
-                <strong
-                  className={tb.tongtonkho > 0 ? "text-success" : "text-danger"}
-                >
-                  {tb.tongtonkho}
-                </strong>{" "}
+                Còn lại:{" "}
+                <strong className={conLai > 0 ? "text-success" : "text-danger"}>
+                  {conLai}
+                </strong>
+                <span className="text-muted">/{tb.tongtonkho}</span>{" "}
                 {tb.donvitinh || "Cái"}
               </small>
-              {Number(tb.dangmuon) > 0 && (
+              {dangMuon > 0 && (
                 <small className="d-block mb-3 text-info">
                   <i className="bi bi-arrow-up-right-circle"></i> Đang cho mượn:{" "}
-                  <strong>{tb.dangmuon}</strong>
+                  <strong>{dangMuon}</strong>
                 </small>
               )}
               <div className="mt-auto">
                 <button
                   className="btn btn-outline-primary btn-sm w-100 fw-bold"
-                  disabled={tb.tongtonkho <= 0}
+                  disabled={conLai <= 0}
                   onClick={() => onSelectItem(tb)}
                 >
                   <i className="bi bi-cart-plus"></i> Chọn Mượn
@@ -63,7 +65,8 @@ export default function EquipmentShop({ dsThietBi, onSelectItem }) {
             </div>
           </div>
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
